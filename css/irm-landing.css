@@ -1,0 +1,147 @@
+/** @author Carey Dayrit carey.dayrit@gmail.com **/
+
+body {
+  padding-top: 30px;
+  padding-bottom: 10px;
+   font-family:"Open Sans",Arial,Helvetica,Sans-Serif;
+
+}
+    /* CUSTOMIZE THE NAVBAR
+
+-------------------------------------------------- */
+
+
+.navbar-default {
+	background-color: #0072bd;
+	border-color: #004f7d;
+
+}
+.navbar-default .navbar-brand {
+	color: #f5f5f5;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	color: #ffffff;
+}
+.navbar-default .navbar-text {
+	color: #f5f5f5;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #f5f5f5;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #ffffff;
+    background-color:#004f7d;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #004f7d;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color: #ffffff;
+	background-color: #004f7d;
+}
+.navbar-default .navbar-toggle {
+	border-color: #004f7d;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #004f7d;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #f5f5f5;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border-color: #f5f5f5;
+}
+.navbar-default .navbar-link {
+	color: #f5f5f5;
+}
+.navbar-default .navbar-link:hover {
+	color: #ffffff;
+}
+
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar {
+  min-height:30px !important;
+  margin-bottom:10px;
+  font-size:12px;
+
+}
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #f5f5f5;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #ffffff;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #ffffff;
+		background-color: #004f7d;
+	}
+}
+
+#irmlogo{
+  text-align:center;
+
+}
+
+#logo{
+  text-align:center;
+}
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+/* FOOTER
+-------------------------------------------------- */
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.church-photo{
+  width:140px;
+  margin:auto;
+}
+
+.list-churches{
+  margin-bottom:20px;
+}
+.table-churches{
+  width:100%;
+}
+
+.table-churches td, .table-churches th{
+  padding:20px;
+  margin:20px;
+}
