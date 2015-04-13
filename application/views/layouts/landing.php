@@ -53,9 +53,9 @@
     <?=$this->load->view('layouts/nav/home'); ?>
 
     <div class="container" >
-                <div class="col-md-offset-2 col-md-8">
+        <div class="col-md-offset-2 col-md-8">
                 <img src="<?php echo base_url()?>images/logo.jpg" class="img-responsive"  />
-                </div>
+        </div>
 
     </div>
 
@@ -65,12 +65,12 @@
     </div>
 
 
-          <!-- FOOTER -->
+        <!-- FOOTER -->
     <br />
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2014 IRM Evangelical Church. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+    </footer>
 
 
         <!-- Bootstrap core JavaScript
