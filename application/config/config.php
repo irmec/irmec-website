@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://irmevangelicalchurch.org/';
+$config['base_url']	= 'http://localhost/irmec-website/';
 
 /*
 |--------------------------------------------------------------------------
