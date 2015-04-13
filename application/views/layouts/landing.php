@@ -13,25 +13,25 @@
      <?php $this->load->view('partials/fbmeta_default', $fbmeta_data);?>
     <!-- Bootstrap core CSS -->
 <!-- CSS Styles -->
-<link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="<?=base_url()?>css/bootstrap/css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="<?=base_url()?>css/irm-landing.css" type="text/css" />
 <!-- Place somewhere in the <head> of your document -->
 <link rel="stylesheet" href="<?=base_url()?>css/flexslider/flexslider.css" type="text/css">
 <!-- additional css -->
-<? if(is_array($css)): ?>
-    <? foreach($css as $v):?>
+<?php if(is_array($css)): ?>
+    <?php foreach($css as $v):?>
          <link rel="stylesheet" href="<?=base_url()?>css/<?=$v?>"  type="text/css" />
-    <? endforeach; ?>
-    <? unset($v); ?>
-<? endif; ?>
+    <?php endforeach; ?>
+    <?php unset($v); ?>
+<?php endif; ?>
 <!-- Javascript -->
 <script language="JavaScript" src="<?=base_url()?>javascript/jquery-1.7.1.min.js" type="text/javascript"></script>
-<? if(is_array($js)): ?>
-    <? foreach($js as $v): ?>
+<?php if(is_array($js)): ?>
+    <?php foreach($js as $v): ?>
          <script language="JavaScript" src="<?=base_url()?>javascript/<?=$v?>" type="text/javascript"></script>
-    <? endforeach; ?>
-    <? unset($v); ?>
-<? endif; ?>
+    <?php endforeach; ?>
+    <?php unset($v); ?>
+<?php endif; ?>
 
     <!-- Custom styles for this template -->
     <!-- GOOGLE FONT -->
