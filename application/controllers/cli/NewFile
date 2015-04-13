@@ -1,0 +1,66 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * @author: kevinfelisilda@gmail.com
+ */
+class Migrate extends CLI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->dbforge();
+		$this->load->library('migration');
+	}
+
+	public function index()
+	{
+
+		echo "Migration Class" . PHP_EOL;
+		echo "Current Version: " . $this->migration->current() . PHP_EOL;
+
+		if ( ! $this->migration->current())
+		{
+			echo $this->migration->error_string();
+		}
+		else
+		{
+			echo "Class loaded.";
+		}
+
+	}
+
+	public function latest()
+	{
+		echo "Loading Latest Migration\n";
+
+		$this->migration->latest();
+
+		echo $this->migration->error_string() . PHP_EOL;
+	}
+
+	public function reset()
+	{
+		echo "Reset Migration\n";
+
+		$this->migration->version(0);
+
+		echo $this->migration->error_string() . PHP_EOL;
+	}
+
+	public function version($version = 0)
+	{
+		if ( (int)$version < 1 )
+		{
+			echo "You need to specify version greater than 0";
+			die();
+		}
+
+		echo "Setting Migration Version\n";
+
+		$this->migration->version($version);
+
+		echo $this->migration->error_string() . PHP_EOL;
+	}
+
+}
