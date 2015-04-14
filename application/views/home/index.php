@@ -28,7 +28,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="<?php echo base_url()?>images/vission_circle.jpg" alt="Generic placeholder image">
           <h2>Vision</h2>
-          <p>We envision that our corporate effort shall contribute to the fulfillment of the mission of <b>Jesus Christ</b> towards the transformation and redemption of nations.</p>
+          <p>We envision that our corporate effort shall contribute to the fulfillment of the mission of <b>Jesus Christ</b> towards the redemption and transformation of nations.</p>
           <!--p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p -->
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
