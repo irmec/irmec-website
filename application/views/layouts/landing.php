@@ -14,6 +14,10 @@
     <!-- Bootstrap core CSS -->
 <!-- CSS Styles -->
 <link rel="stylesheet" href="<?=base_url()?>css/bootstrap/css/bootstrap.css" type="text/css" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 <link rel="stylesheet" href="<?=base_url()?>css/irm-landing.css" type="text/css" />
 <!-- Place somewhere in the <head> of your document -->
 <link rel="stylesheet" href="<?=base_url()?>css/flexslider/flexslider.css" type="text/css">
@@ -67,6 +71,7 @@
 
         <!-- FOOTER -->
     <br />
+    
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2014 IRM Evangelical Church. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
