@@ -8,20 +8,23 @@
     <li>
       <img src="<?php echo base_url()?>images/slider1.jpg"  alt="First slide"/>
     </li>
-    <li>
-      <img src="<?php echo base_url()?>images/slider2.jpg"  alt="First slide" />
+        <li>
+      <img src="<?php echo base_url()?>images/slider5.jpg"  alt="Second slide" />
     </li>
     <li>
-      <img src="<?php echo base_url()?>images/slider4.jpg"  alt="First slide" />
+      <img src="<?php echo base_url()?>images/slider2.jpg"  alt="Third slide" />
     </li>
-    <!--li>
-      <img src="<?php echo base_url()?>images/slider3.jpg"  alt="First slide"  />
-    </li -->
+    <li>
+      <img src="<?php echo base_url()?>images/slider4.jpg"  alt="Fourth slide" />
+    </li>
+    <li>
+      <img src="<?php echo base_url()?>images/slider3.jpg"  alt="Fifth slide"  />
+    </li>
   </ul>
 </div>
 </div>
 
-        <div class="container marketing">
+  <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
