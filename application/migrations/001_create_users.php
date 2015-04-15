@@ -1,6 +1,6 @@
 <?php 
 
-class Migration_Create_user extends CI_Migration {
+class Migration_Create_users extends CI_Migration {
 
 	public function up()
 	{
