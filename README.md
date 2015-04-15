@@ -16,4 +16,8 @@ If it is a simple/trivial/non-controversial change, then one of the IRM Evangeli
 
 # DB files
 
-The db files are not included here it should have the proposed migration system.
+Just run the migration files on the command line
+
+~/irmec-website$ php index.php cli/migrate 
+
+
