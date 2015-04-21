@@ -19,6 +19,8 @@ class Migration_Create_groups extends CI_Migration {
 		));
 		
 		$this->dbforge->create_table('groups');
+		$this->db->query("INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+			(1, 'admin', 'Administrator');");
 	}
 	
 	public function down()
