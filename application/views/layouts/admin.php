@@ -36,7 +36,7 @@
             <li><a href="<?php echo base_url().'admin/'?>">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Help</a></li>
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a> </li>
+            <li><a href="<?php echo base_url()?>logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a> </li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -49,12 +49,12 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-                <li><a href="/admin/announcements">Announcements</a></li>
-                <li><a href="/admin/workers">Workers</a>
+                <li><a href="<?php echo base_url()?>admin/announcements">Announcements</a></li>
+                <li><a href="<?php echo base_url()?>admin/workers">Workers</a>
                 </li>
-                <li><a href="/admin/churches">Churches</a>
+                <li><a href="<?php echo base_url()?>admin/churches">Churches</a>
                 </li>
-                <li><a href="/admin/downloads">Downloads</a></li>
+                <li><a href="<?php echo base_url()?>admin/downloads">Downloads</a></li>
 
           </ul>
 
