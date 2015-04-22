@@ -1,4 +1,4 @@
-1st Step Download all this first
+1st Step Download all this first and install
 
 Download Tortoisegit - Link Below
 http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi
