@@ -14,10 +14,7 @@ The API, the proposed mobile code are seperated from this repository.
 
 If it is a simple/trivial/non-controversial change, then one of the IRM Evangelical Church development team members simply pulls it.
 
-# DB files
+# Installation
 
-Just run the migration files on the command line
-
-~/irmec-website$ php index.php cli/migrate 
-
+Please read on how to install on your local dev machine see [INSTALLATION.md](INSTALLATION.md)
 

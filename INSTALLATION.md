@@ -1,18 +1,24 @@
-1st Step Download all this first and install
+INSTALLATION NOTES
+==================
 
-Download Tortoisegit - Link Below
-http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi
+#Windows 
 
-Download Git - Link Below
-https://msysgit.github.io/
+## Pre-requisites
 
-codeIgniter Manual - Link Below
-https://www.dropbox.com/s/3jpw7urei0c00fc/CodeIgniter-2.1.4.chm?dl=0
+### 1st Step Download all this first and install 
+(Skip if you have already done so)
+- Wamp or Xampp
+
+- Download Tortoisegit - [TortoiseGit](http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi)
+
+- Download Git - [MSysGit](https://msysgit.github.io/)
+
+- CodeIgniter Manual - [CHM Version](https://www.dropbox.com/s/3jpw7urei0c00fc/CodeIgniter-2.1.4.chm?dl=0)
 
  
-2nd Step
+### 2nd Step
 
-- Now Create a folder and named it (irmec) with out parenthesis on HTDOCS if you are using xampp. 
+- On Xampp find htdocs c:\xampp\htdocs on wamp c:\wamp\www 
 
 - then right click the folder select GIT CLONE after a window pop up, 
 
@@ -20,32 +26,73 @@ https://www.dropbox.com/s/3jpw7urei0c00fc/CodeIgniter-2.1.4.chm?dl=0
 
 - then click OK. Wait until the Command progess done.
 
-- after its done place all folder and file outside the irmec-website folder.
+- after its done it would create irmec-website folder.
 
-- then delete the irmec-wesite folder
+- if you want to run it via http://localhost/irmec-website you need to do the following
 
 - now find the .HTACCESS and open it on any editor (notepad,notepad++,Sublime,etc)
 
-- now find the RewrtireBase / (Line 3) and Add this irmec/ --- Like this -> RewriteBase /irmec/
+- now find the RewrtireBase / (Line 3) and Add this irmec-website/ --- Like this -> RewriteBase /irmec-website/
 
 - now find the CONFIG.PHP inside Application folder then config folder, (applications/config/config.php) 
   open it on any editor (notepad,notepad++,Sublime,etc)
 
 - now find the $config['base_url'] = 'http://localhost/irmec-website/'; (Basically its on line 17)
 
-- change the link to this 'http://localhost/irmec/';
-
-3rd step for database
+### 3rd step for database
 
 - create a database named it irmec-scratch
 
-- then paste this on any browser http://localhost/irmec/cli/migrate
+- then paste this on any browser http://localhost/irmec-website/cli/migrate
 
-4th step
+### 4th step
 
-- paste this on any browser localhost/irmec
+- paste this on any browser http://localhost/irmec-website
 
 FINISHED!
+
+#Linux
+
+##Debian or Ubuntu
+
+- $ sudo apt-get install php5 apache2 git
+
+- $ cd /var/www/html 
+
+- /var/www/html$ git clone git@github.com:irmec/irmec-website.git
+
+- $ cd irmec-website
+
+- create a database irmec-scratch using mysql
+
+- $ php index.php cli/migrate
+
+- check your browser for http://localhost/irmec-website
+
+
+##Fedora or CentOs
+
+- $ sudo yum install php5 apache2 git
+
+- $ cd /var/www/html 
+
+- /var/www/html$ git clone git@github.com:irmec/irmec-website.git
+
+- $ cd irmec-website
+
+- create a database irmec-scratch using mysql
+
+- $ php index.php cli/migrate
+
+- check your browser for http://localhost/irmec-website
+
+
+### Access the admin panel http://localhost/irmec-website/admin 
+
+* username: admin@irmevagelicalchurch.org 
+
+* password: demo
+
 
 
 
