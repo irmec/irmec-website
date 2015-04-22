@@ -24,6 +24,11 @@ class Migration_Create_users extends CI_Migration {
 				'constraint'=> 40,
 				'null'=> FALSE
 			),
+			'password'=> array(
+				'type'=> 'VARCHAR',
+				'constraint'=> 40,
+				'null'=> FALSE
+			),
 			'salt'=> array(
 				'type'=> 'varchar',
 				'constraint'=> 40,
