@@ -18,3 +18,18 @@ If it is a simple/trivial/non-controversial change, then one of the IRM Evangeli
 
 Please read on how to install on your local dev machine see [INSTALLATION.md](INSTALLATION.md)
 
+### Style Guide ###
+
+Please follow CodeIgniter [Style guide](https://ellislab.com/codeigniter/user-guide/general/styleguide.html)
+
+### Migration Tool ###
+
+The migration tool can be run on the command line.
+
+```
+bash:~$ php index.php cli/migrate
+```
+* /index -> use to show migration version
+* /latest -> load latest version on migrations file, usually prefix with 3 digit numbers, underscore, and filename.php
+* /reset  -> remove all migration data (by calling down() function in all migrations)
+* /version/[version_number] -> go back to a certain version.
