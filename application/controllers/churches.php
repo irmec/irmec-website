@@ -11,13 +11,14 @@ class Churches extends MY_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->library('pagination');
         $this->load->database();
         $this->load->helper('form');
         $this->load->helper('url');
 
     }
 
-    public function index()
+    public function index($cur_page = 1)
     {
         //
         $data = array();
@@ -25,19 +26,36 @@ class Churches extends MY_Controller
         $this->load->model('town_model');
 
         $keyword  = $this->input->get('keyword') ? trim($this->input->get('keyword')) : null;
-        $province = $this->input->get('province') ? trim($this->input->get('province')) : null;
-
-        $data['select_province'] = $this->town_model->select_province();
+        
+        $province = $this->input->get('province') ? trim($this->input->get('province')) : null;        
+        
+        $data['select_province'] = $this->town_model->select_province();        
+       
+        $config['per_page'] = '5';
+        
+        $config['base_url'] = base_url()."admin/churches/index/";
 
         if($keyword || $province){
-              $data['featured_churches'] = $this->church_model->searchChurches($keyword, $province);
+              $data['featured_churches'] = $this->church_model->searchChurches($keyword, $province);              
+              $num_rows = count($data['featured_churches']);
 
         }else{
-             $data['featured_churches'] = $this->church_model->getRandomChurches();
+             $data['featured_churches'] = $this->church_model->getChurchesSearch(null,$cur_page, $config['per_page']);
+             $num_rows = $this->church_model->getChurchesCount();
+             $config['uri_segment'] = 2;
         }
+                        
+        $config['total_rows'] = $num_rows;
 
-        //var_dump($data['featured_churches']);
+			// set the current page to first page
+		$config['cur_page'] = $cur_page;
+        
+        $config['base_url'] = base_url()."churches/";
+        
+        $this->pagination->initialize($config);
+        
         $data['content'] = $this->load->view('churches/index', $data, true);
+        
         $this->render('landing', $data);
 
     }
