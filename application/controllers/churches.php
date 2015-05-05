@@ -21,6 +21,7 @@ class Churches extends MY_Controller
     public function index($cur_page = 1)
     {
         //
+        
         $data = array();
         $this->load->model('church_model');
         $this->load->model('town_model');
@@ -31,10 +32,10 @@ class Churches extends MY_Controller
         
         $data['select_province'] = $this->town_model->select_province();        
        
-        $config['per_page'] = '5';
+        $config['per_page'] = '20';
         
-        $config['base_url'] = base_url()."admin/churches/index/";
-
+        
+        
         if($keyword || $province){
               $data['featured_churches'] = $this->church_model->searchChurches($keyword, $province);              
               $num_rows = count($data['featured_churches']);
@@ -43,14 +44,15 @@ class Churches extends MY_Controller
              $data['featured_churches'] = $this->church_model->getChurchesSearch(null,$cur_page, $config['per_page']);
              $num_rows = $this->church_model->getChurchesCount();
              $config['uri_segment'] = 2;
+             $config['base_url'] = base_url()."churches/index/";
         }
                         
         $config['total_rows'] = $num_rows;
 
 			// set the current page to first page
-		$config['cur_page'] = $cur_page;
+        $config['cur_page'] = $cur_page;
         
-        $config['base_url'] = base_url()."churches/";
+        
         
         $this->pagination->initialize($config);
         

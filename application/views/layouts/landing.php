@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="<?=base_url()?>css/irm-landing.css" type="text/css" />
 <!-- Place somewhere in the <head> of your document -->
 <link rel="stylesheet" href="<?=base_url()?>css/flexslider/flexslider.css" type="text/css">
+<link rel="stylesheet" href="<?=base_url()?>css/font-awesome/font-awesome.min.css" type="text/css">
 <!-- additional css -->
 <?php if(is_array($css)): ?>
     <?php foreach($css as $v):?>

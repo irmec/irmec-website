@@ -97,6 +97,8 @@ inner join provinces p on t.province_id=p.id
          return $this->db->query($sql)->num_rows();
 
     }
+    
+
 
     public function getChurchesSearch($keyword = null, $page=1, $limit=20)
     {
@@ -113,8 +115,8 @@ inner join provinces p on t.province_id=p.id
             }
 
         }
+        
         $sql .= " ORDER BY c.id DESC LIMIT {$page}, {$limit} ";
-
 
     	$result = $this->db->query($sql)->result_array();
 
