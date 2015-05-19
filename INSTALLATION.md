@@ -9,7 +9,9 @@ INSTALLATION NOTES
 (Skip if you have already done so)
 - Wamp or Xampp
 
-- Download Tortoisegit - [TortoiseGit](http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi)
+- Download Tortoisegit -
+-- [32-bit] (http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi) 
+-- [64-bit] (http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-64bit.msi)
 
 - Download Git - [MSysGit](https://msysgit.github.io/)
 
