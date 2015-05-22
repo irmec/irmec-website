@@ -1,5 +1,6 @@
 INSTALLATION NOTES
 ==================
+Note: There is an alternative way doing the setup please refer to [Vagrant Repository](https://github.com/irmec/vagrant)
 
 #Windows 
 
@@ -10,8 +11,8 @@ INSTALLATION NOTES
 - Wamp or Xampp
 
 - Download Tortoisegit -
-[32-bit] (http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi) 
-[64-bit] (http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-64bit.msi)
+[32-bit](http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-32bit.msi) 
+[64-bit](http://download.tortoisegit.org/tgit/1.8.14.0/TortoiseGit-1.8.14.0-64bit.msi)
 
 - Download Git - [MSysGit](https://msysgit.github.io/)
 
@@ -43,7 +44,7 @@ INSTALLATION NOTES
 
 ### 3rd step for database
 
-- create a database named it irmec-scratch
+- create a database named it irmec_scratch
 
 - then paste this on any browser http://localhost/irmec-website/cli/migrate
 
