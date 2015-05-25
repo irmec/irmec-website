@@ -42,7 +42,7 @@ class Churches extends MY_Controller
 
         }else{
              $data['featured_churches'] = $this->church_model->getChurchesSearch(null,$cur_page, $config['per_page']);
-             $num_rows = $this->church_model->getChurchesCount();
+             $num_rows = $this->church_model->getChurchesSearchCount();
              $config['uri_segment'] = 2;
              $config['base_url'] = base_url()."churches/index/";
         }
@@ -89,21 +89,7 @@ class Churches extends MY_Controller
 
     }
 
-
-    //for search usually do this as Get
-
-
-    public function search()
-    {
-
-
-
-    }
-
-
-
-
-
+    
 }
 
 

@@ -40,11 +40,12 @@ inner join provinces p on t.province_id=p.id
 
     }
 
-    public function searchChurches($keyword = null, $province = null, $page=1, $limit=20)
+    public function searchChurches($keyword = NULL, $province = NULL, $page=1, $limit=20)
     {
         #build criteria
-        if($province == 'All'){
-            $province = null;
+        if($province == 'All')
+        {
+            $province = NULL;
         }
 
 
@@ -54,17 +55,21 @@ inner join provinces p on t.province_id=p.id
                 INNER JOIN  towns t on c.town_id = t.id
                 INNER JOIN provinces p ON t.province_id=p.id";
 
-         if($keyword || $province){
+         if($keyword || $province)
+         {
             $sql .= " WHERE ";
-            if(!empty($keyword)){
+            if(!empty($keyword))
+            {
                 $sql .= " c.name like '%{$keyword}%' OR c.address like '%{$keyword}%' OR t.name like '%{$keyword}%' OR p.name like '%{$keyword}%'  ";
             }
 
-            if(!empty($keyword) && !empty($province)){
+            if(!empty($keyword) && !empty($province))
+            {
                 $sql .=' AND ' ;
             }
 
-            if(!empty($province)){
+            if(!empty($province))
+            {
                 $sql .= " province_id={$province} ";
             }
 
@@ -76,10 +81,47 @@ inner join provinces p on t.province_id=p.id
          return $this->db->query($sql)->result_array();
 
     }
+    
+    public function searchChurchesCount($keyowrd = NULL, $province = NULL)
+    {
+	   if($province == 'All')
+        {
+            $province = NULL;
+        }
+
+
+        $sql = "
+            SELECT c.*, t.name as town_name, p.name as province_name
+            FROM churches c
+                INNER JOIN  towns t on c.town_id = t.id
+                INNER JOIN provinces p ON t.province_id=p.id";
+
+         if($keyword || $province)
+         {
+            $sql .= " WHERE ";
+            if(!empty($keyword))
+            {
+                $sql .= " c.name like '%{$keyword}%' OR c.address like '%{$keyword}%' OR t.name like '%{$keyword}%' OR p.name like '%{$keyword}%'  ";
+            }
+
+            if(!empty($keyword) && !empty($province))
+            {
+                $sql .=' AND ' ;
+            }
+
+            if(!empty($province))
+            {
+                $sql .= " province_id={$province} ";
+            }	
+		}
+		
+		return $this->db->query($sql)->num_rows();
+		
+	}
 
 
     #we made this method for including search for town name and province name
-    public function getChurchesCount($keyword=null)
+    public function getChurchesSearchCount($keyword=null)
     {
         $sql = "
             SELECT c.*, t.name as town_name, p.name as province_name
