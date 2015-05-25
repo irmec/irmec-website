@@ -11,8 +11,11 @@ class Churches extends MY_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->library('pagination');
+        $this->load->library('pagination');        
+        
         $this->load->database();
+        $this->load->model('church_model');
+        $this->load->model('town_model');
         $this->load->helper('form');
         $this->load->helper('url');
 
@@ -23,8 +26,7 @@ class Churches extends MY_Controller
         //
         
         $data = array();
-        $this->load->model('church_model');
-        $this->load->model('town_model');
+        
 
         $keyword  = $this->input->get('keyword') ? trim($this->input->get('keyword')) : null;
         
@@ -37,7 +39,12 @@ class Churches extends MY_Controller
         
         
         if($keyword || $province){
-              $data['featured_churches'] = $this->church_model->searchChurches($keyword, $province);              
+              $data['featured_churches'] = $this->church_model->searchChurches($keyword, $province);  
+              /** for pagination 
+				* $num_rows = $this->church_model->searchChurchesCount($keyword, $province);
+				* $config['uri_segment']=4;
+				* $config['base_url'] = base_url()."churches/index/";
+				*/
               $num_rows = count($data['featured_churches']);
 
         }else{
