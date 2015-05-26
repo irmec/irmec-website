@@ -1,9 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * @author Carey Dayrit carey.dayrit@gmail.com
-* Sample CRUD please conform with PSR-2
-* Make sure inflector helper is included
-*
 *
 */
 
@@ -12,7 +9,8 @@ class Downloads extends MY_Controller
 {
 
     public $model;
-    public $name = 'downloads';#class name
+    public $name = 'downloads';
+#class name
 
 
 
@@ -24,18 +22,21 @@ class Downloads extends MY_Controller
 
     public function index()
     {
-             //initialize variables
+        //initialize variables
         $data = array();
 
         //initialize models
         $this->load->model($this->model);
 
         $keyword = $this->input->get('keyword') ? trim($this->input->get('keyword')) : null;
-        if(!empty($keyword)){
-            $data[$this->name] = $this->{$this->model}->findAll("name like '%{$keyword}%'");
+        if(!empty($keyword))
+        {
+            $data[$this->name] = $this-> {$this->model}->findAll("name like '%{$keyword}%'");
 
-        }else{
-            $data[$this->name] = $this->{$this->model}->findAll();
+        }
+        else
+        {
+            $data[$this->name] = $this-> {$this->model}->findAll();
         }
         $data['name'] = $this->name;
         $data['content'] = $this->load->view("admin/{$this->name}/index", $data, true);
@@ -57,39 +58,42 @@ class Downloads extends MY_Controller
 
 
 
-        if($this->form_validation->run() === true){
+        if($this->form_validation->run() === true)
+        {
 
 
             $params = array(
-              'name' => $this->input->post('name'),
-              'description'=> $this->input->post('description'),
-              'createdon'=>date('Y-m-d', time())
-            );
+                          'name' => $this->input->post('name'),
+                          'description'=> $this->input->post('description'),
+                          'createdon'=>date('Y-m-d', time())
+                      );
 
 
 
-            if(!empty($_FILES['file']['name'])){
-              //set the configuration for file upload
-              $upload_config['upload_path'] = './downloads/';
-              $upload_config['allowed_types'] = 'pdf';
-              $upload_config['max_size'] = '0';
-              $upload_config['max_width'] = '2048';
-              $upload_config['max_height'] = '1536';
-              $upload_config['file_name'] = time();
-              //load upload library and initialize defaults
-              $this->load->library('upload', $upload_config);
+            if(!empty($_FILES['file']['name']))
+            {
+                //set the configuration for file upload
+                $upload_config['upload_path'] = './downloads/';
+                $upload_config['allowed_types'] = 'pdf';
+                $upload_config['max_size'] = '0';
+                $upload_config['max_width'] = '2048';
+                $upload_config['max_height'] = '1536';
+                $upload_config['file_name'] = time();
+                //load upload library and initialize defaults
+                $this->load->library('upload', $upload_config);
 
-              if (!$this->upload->do_upload('file')){
-  			    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
-                redirect(base_url().'admin/'.$this->name.'/add');
-             	}
-              $upload_data = $this->upload->data();
+                if (!$this->upload->do_upload('file'))
+                {
+                    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
+                    redirect(base_url().'admin/'.$this->name.'/add');
+                }
+                $upload_data = $this->upload->data();
 
-              $params['file'] = $upload_data['file_name'];
+                $params['file'] = $upload_data['file_name'];
             }
 
             $this->load->model($this->model);
-            $this->{$this->model}->save($params);
+            $this-> {$this->model}->save($params);
 
             $this->session->set_flashdata('message','The record has been added');
             redirect(base_url().'admin/'.$this->name.'/index');
@@ -105,7 +109,7 @@ class Downloads extends MY_Controller
 
     public function edit($id=null)
     {
-      //initialize variables
+        //initialize variables
         $data=array();
 
         //load models here
@@ -113,47 +117,50 @@ class Downloads extends MY_Controller
 
 
 
-        $value = $this->{$this->model}->find("id=$id");
+        $value = $this-> {$this->model}->find("id=$id");
 
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
 
         //validate here
-        if($this->form_validation->run() === true){
+        if($this->form_validation->run() === true)
+        {
 
             $params = array(
-              'name' => $this->input->post('name'),
-              'description'=> $this->input->post('description'),
-              'updatedon'=>date('Y-m-d', time())
-            );
+                          'name' => $this->input->post('name'),
+                          'description'=> $this->input->post('description'),
+                          'updatedon'=>date('Y-m-d', time())
+                      );
 
             //insert photo here
 
             //check if we have a photo
-            if(!empty($_FILES['file']['name'])){
-              //set the configuration for file upload
-              $upload_config['upload_path'] = './downloads/';
-              $upload_config['allowed_types'] = 'pdf';
-              $upload_config['max_size'] = '0';
-              $upload_config['max_width'] = '2048';
-              $upload_config['max_height'] = '1536';
-              $upload_config['file_name'] = time();
-              //load upload library and initialize defaults
-              $this->load->library('upload', $upload_config);
+            if(!empty($_FILES['file']['name']))
+            {
+                //set the configuration for file upload
+                $upload_config['upload_path'] = './downloads/';
+                $upload_config['allowed_types'] = 'pdf';
+                $upload_config['max_size'] = '0';
+                $upload_config['max_width'] = '2048';
+                $upload_config['max_height'] = '1536';
+                $upload_config['file_name'] = time();
+                //load upload library and initialize defaults
+                $this->load->library('upload', $upload_config);
 
-              //remove old image
-              @unlink($upload_config['upload_path'].$value['file']);
+                //remove old image
+                @unlink($upload_config['upload_path'].$value['file']);
 
-              if (!$this->upload->do_upload('file')){
-  			    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
-                  redirect(base_url().'admin/'.$this->name.'/edit/'.$value['id']);
-             	}
-              $upload_data = $this->upload->data();
+                if (!$this->upload->do_upload('file'))
+                {
+                    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
+                    redirect(base_url().'admin/'.$this->name.'/edit/'.$value['id']);
+                }
+                $upload_data = $this->upload->data();
 
-              $params['file'] = $upload_data['file_name'];
+                $params['file'] = $upload_data['file_name'];
             }
 
-            $this->{$this->model}->save($params, $id);
+            $this-> {$this->model}->save($params, $id);
             //put a flash message
             $this->session->set_flashdata('message','The record has been updated');
             redirect(base_url().'admin/'.$this->name);
@@ -163,7 +170,7 @@ class Downloads extends MY_Controller
 
 
         $data['value'] = $value;
-         $data['name'] = $this->name;
+        $data['name'] = $this->name;
         $data['content'] = $this->load->view('admin/'.$this->name.'/edit', $data, true);
         $this->render('admin', $data);
 
@@ -175,7 +182,7 @@ class Downloads extends MY_Controller
     {
         $this->load->model($this->model);
 
-        $this->{$this->model}->remove($id);
+        $this-> {$this->model}->remove($id);
 
         $this->session->set_flashdata('message','The record has been removed');
         redirect(base_url().'admin/'.$this->name);
@@ -190,7 +197,7 @@ class Downloads extends MY_Controller
         $this->load->model($this->model);
 
 
-        $data['value'] = $this->{$this->model}->find("id=$id");
+        $data['value'] = $this-> {$this->model}->find("id=$id");
         $data['name'] = $this->name;
         $data['content'] = $this->load->view('admin/'.$this->name.'/view', $data, true);
         $this->render('admin', $data);

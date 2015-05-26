@@ -1,7 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * @author Carey Dayrit carey.dayrit@gmail.com
-* Sample CRUD please conform with PSR-2
 */
 
 class Announcements extends MY_Controller
@@ -12,10 +11,10 @@ class Announcements extends MY_Controller
 
         /*
         if (!$this->ion_auth->logged_in())
-		{
-			//redirect them to the login page
-			redirect($this->config->item('base_url').'auth/login');
-		}
+        {
+        	//redirect them to the login page
+        	redirect($this->config->item('base_url').'auth/login');
+        }
         */
     }
 
@@ -28,10 +27,13 @@ class Announcements extends MY_Controller
         //initialize models
         $this->load->model('announcement_model');
         $keyword = $this->input->get('keyword') ? trim($this->input->get('keyword')) : null;
-        if(!empty($keyword)){
+        if(!empty($keyword))
+        {
             $data['announcements'] = $this->announcement_model->findAll("title like '%{$keyword}%'");
 
-        }else{
+        }
+        else
+        {
             $data['announcements'] = $this->announcement_model->findAll();
         }
 
@@ -40,8 +42,8 @@ class Announcements extends MY_Controller
 
     }
 
-        /**
-        add
+    /**
+    add
 
     */
 
@@ -52,37 +54,40 @@ class Announcements extends MY_Controller
         $this->load->helper('form');
         $data = array();
 
-         if($this->form_validation->run() === true){
+        if($this->form_validation->run() === true)
+        {
 
 
             $params = array(
-              'message' => $this->input->post('message'),
-              'sms' => $this->input->post('sms'),
-              'fb' => $this->input->post('fb'),
-              'twitter'=> $this->input->post('twitter'),
-              'insertedon'=>date('Y-m-d', time())
-            );
+                          'message' => $this->input->post('message'),
+                          'sms' => $this->input->post('sms'),
+                          'fb' => $this->input->post('fb'),
+                          'twitter'=> $this->input->post('twitter'),
+                          'insertedon'=>date('Y-m-d', time())
+                      );
 
 
 
-            if(!empty($_FILES['photo']['name'])){
-              //set the configuration for file upload
-              $upload_config['upload_path'] = './images/announcements/';
-              $upload_config['allowed_types'] = 'gif|jpg|png';
-              $upload_config['max_size'] = '0';
-              $upload_config['max_width'] = '1024';
-              $upload_config['max_height'] = '768';
-              $upload_config['file_name'] = time();
-              //load upload library and initialize defaults
-              $this->load->library('upload', $upload_config);
+            if(!empty($_FILES['photo']['name']))
+            {
+                //set the configuration for file upload
+                $upload_config['upload_path'] = './images/announcements/';
+                $upload_config['allowed_types'] = 'gif|jpg|png';
+                $upload_config['max_size'] = '0';
+                $upload_config['max_width'] = '1024';
+                $upload_config['max_height'] = '768';
+                $upload_config['file_name'] = time();
+                //load upload library and initialize defaults
+                $this->load->library('upload', $upload_config);
 
-              if (!$this->upload->do_upload('photo')){
-  			    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
-                  redirect(base_url().'admin/announcements/add');
-             	}
-              $upload_data = $this->upload->data();
+                if (!$this->upload->do_upload('photo'))
+                {
+                    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
+                    redirect(base_url().'admin/announcements/add');
+                }
+                $upload_data = $this->upload->data();
 
-              $params['photo'] = $upload_data['file_name'];
+                $params['photo'] = $upload_data['file_name'];
             }
 
             $this->load->model('announcement_model');
@@ -96,9 +101,9 @@ class Announcements extends MY_Controller
         $data['content'] = $this->load->view('admin/announcements/add', $data, true);
         $this->render('admin', $data);
 
-     }
+    }
 
-         /** Remove Church **/
+    /** Remove Church **/
 
     public function remove($id)
     {
@@ -122,9 +127,9 @@ class Announcements extends MY_Controller
 
         // Create our Application instance (replace this with your appId and secret).
         $facebook = new Facebook(array(
-            'appId'  => FB_APP_ID,
-            'secret' => FB_APP_SECRET
-        ));
+                                     'appId'  => FB_APP_ID,
+                                     'secret' => FB_APP_SECRET
+                                 ));
 
 
         // Get User ID
@@ -132,37 +137,48 @@ class Announcements extends MY_Controller
 
 
 
-        if ($user) {
-            try {
-               $page_info = $facebook->api("/$page_id?fields=access_token");
-              if( !empty($page_info['access_token']) ) {
-                $args = array(
-                    'access_token'  => $page_info['access_token'],
-                    'message'       => $message
-                );
-                $post_id = $facebook->api("/$page_id/feed","post",$args);
-              }else{
-                  $permissions = $facebook->api("/me/permissions");
-                  if( !array_key_exists('publish_stream', $permissions['data'][0]) ||
-                     !array_key_exists('manage_pages', $permissions['data'][0])) {
-                      // We don't have one of the permissions
-                      // Alert the admin or ask for the permission!
-                      header( "Location: " . $facebook->getLoginUrl(array("scope" => "publish_stream, manage_pages")) );
-                  }
-             }
-            }catch (FacebookApiException $e) {
-             error_log($e);
-             $user = null;
+        if ($user)
+        {
+            try
+            {
+                $page_info = $facebook->api("/$page_id?fields=access_token");
+                if( !empty($page_info['access_token']) )
+                {
+                    $args = array(
+                                'access_token'  => $page_info['access_token'],
+                                'message'       => $message
+                            );
+                    $post_id = $facebook->api("/$page_id/feed","post",$args);
+                }
+                else
+                {
+                    $permissions = $facebook->api("/me/permissions");
+                    if( !array_key_exists('publish_stream', $permissions['data'][0]) ||
+                            !array_key_exists('manage_pages', $permissions['data'][0]))
+                    {
+                        // We don't have one of the permissions
+                        // Alert the admin or ask for the permission!
+                        header( "Location: " . $facebook->getLoginUrl(array("scope" => "publish_stream, manage_pages")) );
+                    }
+                }
+            }
+            catch (FacebookApiException $e)
+            {
+                error_log($e);
+                $user = null;
             }
         }
 
         // Login or logout url will be needed depending on current user state.
-        if ($user) {
-          $logoutUrl = $facebook->getLogoutUrl();
-        } else {
-          $statusUrl = $facebook->getLoginStatusUrl();
-          $loginUrl = $facebook->getLoginUrl();
-          redirect($loginUrl);
+        if ($user)
+        {
+            $logoutUrl = $facebook->getLogoutUrl();
+        }
+        else
+        {
+            $statusUrl = $facebook->getLoginStatusUrl();
+            $loginUrl = $facebook->getLoginUrl();
+            redirect($loginUrl);
         }
         // ... rest of your code
     }

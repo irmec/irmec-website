@@ -11,10 +11,10 @@ class Dashboard extends MY_Controller
         //basic auth
 
         if (!$this->ion_auth->logged_in())
-		{
-			//redirect them to the login page
-			redirect($this->config->item('base_url').'auth/login');
-		}
+        {
+            //redirect them to the login page
+            redirect($this->config->item('base_url').'auth/login');
+        }
         $this->load->model('worker_model');
         $this->load->model('church_model');
 
