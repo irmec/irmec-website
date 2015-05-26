@@ -16,27 +16,27 @@ class Churches extends MY_Controller
 
 
         if (!$this->ion_auth->logged_in())
-		{
-			//redirect them to the login page
-			redirect($this->config->item('base_url').'auth/login');
-		}
+        {
+            //redirect them to the login page
+            redirect($this->config->item('base_url').'auth/login');
+        }
 
         $this->anniversary_months = array(
-            0=>'----',
-            1=>'January', 2=>'February', 3=>'March', 4=>'April', 5=>'May', 6=>'June',7=> 'July',
-            8=>'August', 9=>'Septempber', 10=>'October',11=> 'November',12=>'December'
+                                        0=>'----',
+                                        1=>'January', 2=>'February', 3=>'March', 4=>'April', 5=>'May', 6=>'June',7=> 'July',
+                                        8=>'August', 9=>'Septempber', 10=>'October',11=> 'November',12=>'December'
 
-        );
+                                    );
 
         $this->anniversary_weeks = array(
-            0=>'----',
-            1=>'First',
-            2=>'Second',
-            3=>'Third',
-            4=>'Fourth',
-            5=>'Fifth'
+                                       0=>'----',
+                                       1=>'First',
+                                       2=>'Second',
+                                       3=>'Third',
+                                       4=>'Fourth',
+                                       5=>'Fifth'
 
-        );
+                                   );
 
     }
     /**
@@ -51,19 +51,26 @@ class Churches extends MY_Controller
 
         $keyword= $this->input->post('keyword');
 
-        if(empty($keyword)){ #post is empty
-            #try the uri segment
-           if($this->uri->segment(5,0)){
-               $keyword = $this->uri->segment(4);
-           }
+        if(empty($keyword))
+        {
+#post is empty
+#try the uri segment
+            if($this->uri->segment(5,0))
+            {
+                $keyword = $this->uri->segment(4);
+            }
         }
         $churchesCount = $this->church_model->getChurchesCount($keyword);
-               //pagination
-        if(empty($keyword)){ #loading different config if keyword is present
+        //pagination
+        if(empty($keyword))
+        {
+#loading different config if keyword is present
             $config['base_url'] = base_url()."admin/churches/index/";
             $config['uri_segment'] = 4;
-        }else{
-            #with keyword
+        }
+        else
+        {
+#with keyword
             $keyword_url = urlencode($keyword);
 
             $config['base_url'] = base_url()."admin/churches/index/{$keyword_url}/";
@@ -72,7 +79,7 @@ class Churches extends MY_Controller
         }
 
 
-        #config per bootstrap
+#config per bootstrap
         $config['full_tag_open'] = '<ul  class="pagination">';
         $config['full_tag_close'] ='</ul>';
 
@@ -132,42 +139,45 @@ class Churches extends MY_Controller
         $data['towns'] = $this->town_model->select();
 
 
-        if($this->form_validation->run() === true){
+        if($this->form_validation->run() === true)
+        {
             $month = $this->input->post('month');
             $week = $this->input->post('week');
 
 
             $params = array(
-              'name' => $this->input->post('name'),
-              'anniversary_month' => $month,
-              'anniversary_week' =>$week,
-              'address' => $this->input->post('address'),
-              'town_id' => $this->input->post('town_id'),
-              'zip_code' => $this->input->post('zip_code'),
-              'map'=> $this->input->post('map'),
-              'createdon'=>date('Y-m-d', time())
-            );
+                          'name' => $this->input->post('name'),
+                          'anniversary_month' => $month,
+                          'anniversary_week' =>$week,
+                          'address' => $this->input->post('address'),
+                          'town_id' => $this->input->post('town_id'),
+                          'zip_code' => $this->input->post('zip_code'),
+                          'map'=> $this->input->post('map'),
+                          'createdon'=>date('Y-m-d', time())
+                      );
 
 
 
-            if(!empty($_FILES['photo']['name'])){
-              //set the configuration for file upload
-              $upload_config['upload_path'] = './images/churches/';
-              $upload_config['allowed_types'] = 'gif|jpg|png';
-              $upload_config['max_size'] = '0';
-              $upload_config['max_width'] = '2048';
-              $upload_config['max_height'] = '1536';
-              $upload_config['file_name'] = time();
-              //load upload library and initialize defaults
-              $this->load->library('upload', $upload_config);
+            if(!empty($_FILES['photo']['name']))
+            {
+                //set the configuration for file upload
+                $upload_config['upload_path'] = './images/churches/';
+                $upload_config['allowed_types'] = 'gif|jpg|png';
+                $upload_config['max_size'] = '0';
+                $upload_config['max_width'] = '2048';
+                $upload_config['max_height'] = '1536';
+                $upload_config['file_name'] = time();
+                //load upload library and initialize defaults
+                $this->load->library('upload', $upload_config);
 
-              if (!$this->upload->do_upload('photo')){
-  			    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
-                  redirect(base_url().'admin/churches/add');
-             	}
-              $upload_data = $this->upload->data();
+                if (!$this->upload->do_upload('photo'))
+                {
+                    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
+                    redirect(base_url().'admin/churches/add');
+                }
+                $upload_data = $this->upload->data();
 
-              $params['photo'] = $upload_data['file_name'];
+                $params['photo'] = $upload_data['file_name'];
             }
 
             $this->load->model('church_model');
@@ -184,10 +194,10 @@ class Churches extends MY_Controller
         $this->render('admin', $data);
     }
 
-     /**
-        edit
-        id is the church id
-     */
+    /**
+       edit
+       id is the church id
+    */
     public function edit($id)
     {
         //initialize variables
@@ -205,46 +215,49 @@ class Churches extends MY_Controller
         $this->form_validation->set_rules('name', 'Name', 'required');
 
         //validate here
-        if($this->form_validation->run() === true){
+        if($this->form_validation->run() === true)
+        {
             $month = $this->input->post('month');
             $week = $this->input->post('week');
 
 
             $params = array(
-              'name'=>$this->input->post('name'),
-              'anniversary_month'=>$month,
-              'anniversary_week'=>$week,
-              'address'=>$this->input->post('address'),
-              'town_id'=>$this->input->post('town_id'),
-              'zip_code'=>$this->input->post('zip_code'),
-              'map'=> $this->input->post('map')
-            );
+                          'name'=>$this->input->post('name'),
+                          'anniversary_month'=>$month,
+                          'anniversary_week'=>$week,
+                          'address'=>$this->input->post('address'),
+                          'town_id'=>$this->input->post('town_id'),
+                          'zip_code'=>$this->input->post('zip_code'),
+                          'map'=> $this->input->post('map')
+                      );
 
 
             //insert photo here
 
             //check if we have a photo
-            if(!empty($_FILES['photo']['name'])){
-              //set the configuration for file upload
-              $upload_config['upload_path'] = './images/churches/';
-              $upload_config['allowed_types'] = 'gif|jpg|png';
-              $upload_config['max_size'] = '0';
-              $upload_config['max_width'] = '2048';
-              $upload_config['max_height'] = '1536';
-              $upload_config['file_name'] = time();
-              //load upload library and initialize defaults
-              $this->load->library('upload', $upload_config);
+            if(!empty($_FILES['photo']['name']))
+            {
+                //set the configuration for file upload
+                $upload_config['upload_path'] = './images/churches/';
+                $upload_config['allowed_types'] = 'gif|jpg|png';
+                $upload_config['max_size'] = '0';
+                $upload_config['max_width'] = '2048';
+                $upload_config['max_height'] = '1536';
+                $upload_config['file_name'] = time();
+                //load upload library and initialize defaults
+                $this->load->library('upload', $upload_config);
 
-              //remove old image
-              @unlink($upload_config['upload_path'].$church['photo']);
+                //remove old image
+                @unlink($upload_config['upload_path'].$church['photo']);
 
-              if (!$this->upload->do_upload('photo')){
-  			    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
-                  redirect(base_url().'admin/churches/edit/'.$church['id']);
-             	}
-              $upload_data = $this->upload->data();
+                if (!$this->upload->do_upload('photo'))
+                {
+                    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
+                    redirect(base_url().'admin/churches/edit/'.$church['id']);
+                }
+                $upload_data = $this->upload->data();
 
-              $params['photo'] = $upload_data['file_name'];
+                $params['photo'] = $upload_data['file_name'];
             }
 
             $this->church_model->save($params, $id);
