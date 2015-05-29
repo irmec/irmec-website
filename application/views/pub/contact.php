@@ -42,7 +42,7 @@ echo form_open('pub/contact', $attributes);
             <input id="6_letters_code" name="6_letters_code" type="text">  <?php echo '<br />' ?>
             <small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>
     
-
+ 
 
             </script>
             <script language='JavaScript' type='text/javascript'>
