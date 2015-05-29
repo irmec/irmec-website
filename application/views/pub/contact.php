@@ -41,7 +41,6 @@
                             }
                         </script>
 
-
                         <p>
                             <?php echo form_submit('submit', 'Submit', 'class', 'btn btn-default>'); ?>
                         </p>
