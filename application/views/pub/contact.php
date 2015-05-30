@@ -29,7 +29,7 @@
                             <br />
                             <?php echo form_textarea(array('name' => 'message', 'rows' => '3', 'class' => 'form-control', 'cols' => '80', 'value' => set_value('message'))) ?>
                         </p>
-                        <img src="pub/captcha_code_file.php?rand=<?php echo rand(); ?>" id='captchaimg' ><br />
+                        <img src="<?php echo site_url('/pub/show_captcha/'.rand())?>" id="captchaimg" ><br />
                         <label for="message">Enter the code above here :</label> <br />
                         <input id="6_letters_code" name="6_letters_code" type="text">  <br />
                         <small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>
