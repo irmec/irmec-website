@@ -29,19 +29,18 @@
                             <br />
                             <?php echo form_textarea(array('name' => 'message', 'rows' => '3', 'class' => 'form-control', 'cols' => '80', 'value' => set_value('message'))) ?>
                         </p>
-                        <img src="<?php echo site_url('/pub/show_captcha/'.rand())?>" id='captchaimg' ><br />
-                        <label for="captcha">Enter the code above here :</label> 
-						<?php echo form_error('captcha'); ?> <br />
-                        <input id="6_letters_code" name="6_letters_code" type="text">  <br />
-					    <small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>
-						<script language='JavaScript' type='text/javascript'>
+							<img src="<?php echo site_url('/pub/show_captcha/'.rand())?>" id='captchaimg' ><br />
+							<label for="captcha">Enter the code above here :</label> 
+							<?php echo form_error('6_letters_code'); ?> <br />
+							<input id="6_letters_code" name="6_letters_code" type="text">  <br />
+							<small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>
++						<script language='JavaScript' type='text/javascript'>
                             function refreshCaptcha()
                             {
                                 var img = document.images['captchaimg'];
                                 img.src = img.src.substring(0, img.src.lastIndexOf("<?php site_url('/pub/show_captcha/'.rand())?>")) + "?rand=" + Math.random() * 1000;
                             }
                         </script>
-
                         <p>
                             <?php echo form_submit('submit', 'Submit', 'class', 'btn btn-default>'); ?>
                         </p>
