@@ -31,6 +31,7 @@ class Pub extends MY_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[32]');
         $this->form_validation->set_rules('subject', 'Subject', 'required|max_length[50]');
         $this->form_validation->set_rules('message', 'Message', 'required');
+        $this->form_validation->set_rules('captcha', 'captcha', 'required');
 
         $this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
 
