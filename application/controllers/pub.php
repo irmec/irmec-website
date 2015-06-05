@@ -31,9 +31,10 @@ class Pub extends MY_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[32]');
         $this->form_validation->set_rules('subject', 'Subject', 'required|max_length[50]');
         $this->form_validation->set_rules('message', 'Message', 'required');
-        $this->form_validation->set_rules('captcha', 'captcha', 'required');
+        $this->form_validation->set_rules('6_letters_code', 'Captcha', 'required');
 
         $this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
+
 
         if ($this->form_validation->run() == FALSE) { // validation hasn't been passed
             $data['content'] = $this->load->view('pub/contact', null, true);
@@ -41,19 +42,20 @@ class Pub extends MY_Controller {
 
         } else {
 
-            $form_data = array(
+                 $form_data = array(
                 'email' => set_value('email'),
                 'subject' => set_value('subject'),
-                'message' => set_value('message')
+                'message' => set_value('message'),
+               
             );
             
-            $headers = "From: <". $form_data['email'] . ">" ;
+                $headers = "From: <". $form_data['email'] . ">" ;
 
-			// run insert model to write data to db
+                // run insert model to write data to db
 
-            if ($this->contact_us->SaveForm($form_data) == TRUE) {
-					mail('irmec92@gmail.com', $form_data['subject'], $form_data['message'], $headers);
-					
+                if ($this->contact_us->SaveForm($form_data) == TRUE) {
+                    mail('irmec92@gmail.com', $form_data['subject'], $form_data['message'], $headers);
+                    
                     redirect('pub/success');
             } else {
                 echo 'An error occurred saving your information. Please try again later';
