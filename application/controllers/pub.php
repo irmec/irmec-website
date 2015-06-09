@@ -40,7 +40,7 @@ class Pub extends MY_Controller {
             $data['content'] = $this->load->view('pub/contact', null, true);
             $this->render('landing', $data);
 
-        } else {
+        } elseif($this->session->userdata('6_letters_code') == $this->input->post('6_letters_code')){
 
                  $form_data = array(
                 'email' => set_value('email'),
@@ -59,10 +59,14 @@ class Pub extends MY_Controller {
                     redirect('pub/success');
             } else {
                 echo 'An error occurred saving your information. Please try again later';
+
+               }
+
+                
                 // Or whatever error handling is necessary
             }
         }
-    }
+
 
     public function about()
     {
