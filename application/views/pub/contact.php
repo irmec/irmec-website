@@ -31,8 +31,8 @@
                         </p>
 							<img src="<?php echo site_url('/pub/show_captcha/'.rand())?>" id='captchaimg' ><br />
 							<label for="captcha">Enter the code above here :</label> 
-							<?php echo form_error('6_letters_code'); ?> <br />
-							<input id="6_letters_code" name="6_letters_code" type="text">  <br />
+							<?php echo form_error('captcha_code'); ?> <br />
+							<input id="captcha_code" name="captcha_code" type="text">  <br />
 							<small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>
 +						<script language='JavaScript' type='text/javascript'>
                             function refreshCaptcha()
