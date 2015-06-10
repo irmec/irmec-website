@@ -30,17 +30,18 @@ class Pub extends MY_Controller {
     public function contact() {
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[32]');
         $this->form_validation->set_rules('subject', 'Subject', 'required|max_length[50]');
-        $this->form_validation->set_rules('message', 'Message', 'required');
-        $this->form_validation->set_rules('6_letters_code', 'Captcha', 'required');
+        $this->form_validation->set_rules('message', 'Message','required');
+        $this->form_validation->set_rules('captcha_code', 'Captcha', 'callback_captcha_code_check');
 
         $this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
 
+         
 
         if ($this->form_validation->run() == FALSE) { // validation hasn't been passed
             $data['content'] = $this->load->view('pub/contact', null, true);
             $this->render('landing', $data);
 
-        } elseif($this->session->userdata('6_letters_code') == $this->input->post('6_letters_code')){
+        } else {
 
                  $form_data = array(
                 'email' => set_value('email'),
@@ -67,6 +68,19 @@ class Pub extends MY_Controller {
             }
         }
 
+    public function captcha_code_check($str)
+	{
+	if ($str != $this->session->userdata('captcha_code'))
+	{
+		$this->form_validation->set_message('captcha_code_check', 'The %s don"t match, Try again' );
+		return FALSE;
+	}
+	else
+	{
+		return TRUE;
+	}
+	}
+    
 
     public function about()
     {
@@ -218,7 +232,7 @@ class Pub extends MY_Controller {
 		header('Content-Type: image/jpeg');// defining the image type to be shown in browser widow
 		imagejpeg($image);//showing the image
 		imagedestroy($image);//destroying the image instance
-		$this->session->set_userdata('6_letters_code', $code);
+		$this->session->set_userdata('captcha_code', $code);
 			
 				
 	}
