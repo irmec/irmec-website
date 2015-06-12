@@ -153,7 +153,9 @@ class Churches extends MY_Controller
                           'town_id' => $this->input->post('town_id'),
                           'zip_code' => $this->input->post('zip_code'),
                           'map'=> $this->input->post('map'),
-                          'createdon'=>date('Y-m-d', time())
+                          'createdon'=>date('Y-m-d', time()),
+						  'longitude' => $this->input->post('longitude'),
+						  'latitude' => $this->input->post('latitude')
                       );
 
 
@@ -228,7 +230,9 @@ class Churches extends MY_Controller
                           'address'=>$this->input->post('address'),
                           'town_id'=>$this->input->post('town_id'),
                           'zip_code'=>$this->input->post('zip_code'),
-                          'map'=> $this->input->post('map')
+                          'map'=> $this->input->post('map'),
+						  'longitude' => $this->input->post('longitude'),
+						  'latitude' => $this->input->post('latitude')
                       );
 
 
