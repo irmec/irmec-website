@@ -60,7 +60,7 @@ class Churches extends MY_Controller
                 $keyword = $this->uri->segment(4);
             }
         }
-        $churchesCount = $this->church_model->getChurchesCount($keyword);
+        $churchesCount = $this->church_model->getNumChurches($keyword);
         //pagination
         if(empty($keyword))
         {
@@ -118,7 +118,7 @@ class Churches extends MY_Controller
         //initialize variables
         $data = array();
 
-        $data['churches'] = $this->church_model->getChurchesSearch($keyword, $cur_page);
+        $data['churches'] = $this->church_model->getNumChurches($keyword, $cur_page);
 
         $data['content'] = $this->load->view('admin/churches/index', $data, true);
         $this->render('admin', $data);
