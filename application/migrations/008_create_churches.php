@@ -55,8 +55,19 @@ class Migration_Create_churches extends CI_Migration {
 			),
 			'updatedon'=> array(
 				'type'=> 'TIMESTAMP',				
-				'null'=> TRUE			
-			)		
+				'null'=> TRUE
+			),
+			'longitude'=> array(
+				'type'=> 'INT',
+				'constraint'=> 11,
+				'null'=> TRUE	
+			),
+			'latitude'=> array(
+				'type'=> 'INT',
+				'constraint'=> 11,
+				'null'=> TRUE					
+			
+			)				
 		));
 				
 		$this->dbforge->create_table('churches');
