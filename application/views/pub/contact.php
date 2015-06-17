@@ -34,7 +34,7 @@
 							<?php echo form_error('captcha_code'); ?> <br />
 							<input id="captcha_code" name="captcha_code" type="text">  <br />
 							<small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>
-+						<script language='JavaScript' type='text/javascript'>
+							<script language='JavaScript' type='text/javascript'>
                             function refreshCaptcha()
                             {
                                 var img = document.images['captchaimg'];
