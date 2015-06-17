@@ -224,7 +224,7 @@ class Churches extends MY_Controller
 
 
             $params = array(
-                          'name'=>$this->input->post('name'),
+			              'name'=>$this->input->post('name'),
                           'anniversary_month'=>$month,
                           'anniversary_week'=>$week,
                           'address'=>$this->input->post('address'),
