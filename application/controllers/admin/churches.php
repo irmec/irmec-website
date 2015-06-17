@@ -155,7 +155,7 @@ class Churches extends MY_Controller
                           'map'=> $this->input->post('map'),
                           'createdon'=>date('Y-m-d', time()),
 						  'longitude' => $this->input->post('longitude'),
-						  'latitude' => $this->input->post('latitude')
+			              'latitude' => $this->input->post('latitude')
                       );
 
 
