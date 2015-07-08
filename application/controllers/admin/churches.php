@@ -117,8 +117,11 @@ class Churches extends MY_Controller
 
         //initialize variables
         $data = array();
-
-        $data['churches'] = $this->church_model->getNumChurches($keyword, $cur_page);
+        // Benj: please take note of this
+		// churches count is $config['total_rows']
+        // $data['churches'] = $this->church_model->getNumChurches($keyword, $cur_page);
+        
+        $data['churches'] = $this->church_model->getChurchesSearch($keyword, $cur_page);
 
         $data['content'] = $this->load->view('admin/churches/index', $data, true);
         $this->render('admin', $data);
