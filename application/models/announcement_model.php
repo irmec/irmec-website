@@ -10,5 +10,5 @@ class Announcement_Model extends MY_Model
         $this->loadTable('announcements');
 
     }
-
-}
+    
+ }

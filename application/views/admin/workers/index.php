@@ -34,7 +34,7 @@
   </div><!-- /.col-lg-6 -->
 </form>
 <div class="col-lg-offset-6 col-lg-2">
-<a href="/admin/workers/add" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Row</a>
+<a href="<?php echo base_url()?>admin/workers/add" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Row</a>
 </div>
 </div>
 <p>&nbsp;</p>

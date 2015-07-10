@@ -1,5 +1,5 @@
 <div class="col-md-8">
-<a href="/admin/churches/">Back to Announcement List</a>
+<a href="<?php echo base_url()?>admin/announcements/">Back to Announcement List</a>
 <h2>Add a Church</h2>
 <?php $errors =validation_errors(); ?>
 

@@ -5,7 +5,7 @@ $plural_name = plural($name);
 ?>
 
 <div class="col-md-12">
-<a href="/admin/<?=$this->name?>">Back to <?=$humanize_name?> List</a>
+<a href="<?php echo base_url()?>admin/<?=$this->name?>">Back to <?=$humanize_name?> List</a>
 <br />
     <div class="panel panel-primary">
     <div class="panel-heading">

@@ -1,6 +1,5 @@
 <div class="col-md-8">
-<a href="/admin/workers
-/">Back to Worker's List</a>
+<a href="<?php echo base_url()?>admin/workers/">Back to Worker's List</a>
 <h2>Edit a Worker</h2>
 <?php $errors =validation_errors(); ?>
 

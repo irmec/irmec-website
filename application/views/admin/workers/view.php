@@ -1,5 +1,5 @@
 <div class="col-md-10">
-<a href="/admin/workers/">Back to Workers List</a>
+<a href="<?php echo base_url()?>admin/workers/">Back to Workers List</a>
 <br />
     <div class="panel panel-primary">
     <div class="panel-heading">
