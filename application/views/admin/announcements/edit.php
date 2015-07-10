@@ -1,5 +1,5 @@
 <div class="col-md-8">
-    <a href="<?php echo base_url()?>admin/announcements/">Back to Announcement List</a>
+<a href="<?php echo base_url()?>admin/announcements/">Back to Announcement List</a>
 <h2>Edit a Church</h2>
 <?php $errors =validation_errors(); ?>
 
@@ -11,18 +11,16 @@
 <div class="well">
 <form method="post" role="form" enctype="multipart/form-data">
 <div class="form-group">
-  
 
 <label>Message:</label>
 
-<textarea name="message" class="form-control" rows="5" > <?php echo $announce['address']; ?> </textarea>
+<textarea name="message" class="form-control" rows="5"><?php echo $church['message']; ?></textarea>
 <br />
 <h6 class="pull-right">320 characters remaining</h6>
-<button class="btn btn-info" type="submit">Post Update Message</button>
+<button class="btn btn-info" type="submit">Post New Message</button>
 
 </div>
-    
-    
+
 <div class="form-group">
 <label>Photo:</label>
 <div class="row">
@@ -36,3 +34,5 @@
 </form>
 </div>
 </div>
+
+
