@@ -25,7 +25,7 @@ class Church_Location extends MY_Controller
     public function index()
     {
         
-       $this->form_validation->set_rules('church', 'Church','callback_church');
+       $this->form_validation->set_rules('church', 'Church','required');
        $this->form_validation->set_rules('longitude', 'Longitude','required');
        $this->form_validation->set_rules('latitude', 'Latitude','required');
 
@@ -46,14 +46,15 @@ class Church_Location extends MY_Controller
             
                $this->load->model('churchlocation_model');
                $this->churchlocation_model->SaveForm($form_data);
-                       
-                    
-                    redirect('church_location/index');
-                    echo "Successfully Saved.";
+
+                    $data['content'] = $this->load->view('church_location/indexfile', null, true);
+                    $this->render('landing', $data);
+                    $this->load->view('pub/alert');
 
             } 
 
                 
+                    
                 // Or whatever error handling is necessary
             
 
@@ -63,7 +64,7 @@ class Church_Location extends MY_Controller
      public function church($str)
     {
         
-    if ($str == '---------')
+    if ($str == '')
     {
         $this->form_validation->set_message('church', 'The Church field is required.' );
         return FALSE;
