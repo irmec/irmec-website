@@ -17,7 +17,7 @@ class Pub extends MY_Controller {
     }
 
     public function index() {
-        $data['content'] = $this->load->view('home/index', null, true);
+        $data['content'] = $this->load->view('church_location/index', null, true);
         $this->render('landing', $data);
     }
 
@@ -247,6 +247,12 @@ class Pub extends MY_Controller {
 	                 "blue" => 0xFF & $int);
 		
 	}
+
+    public function alert()
+    {
+
+        $this->load->view('alert');
+    }
 
 
 
