@@ -102,6 +102,81 @@ class Announcements extends MY_Controller
         $this->render('admin', $data);
 
     }
+    
+    /** Edit Church **/
+    
+    public function edit($id=null)
+    {
+       //initialize variables
+        $data=array();
+
+        //load models here
+        $this->load->model('announcement_model');
+        $this->load->helper('form');
+        
+
+        $announce = $this->announcement_model->find("id=$id");
+
+        $this->form_validation->set_rules('message', 'Message', 'required');
+
+        //validate here
+        if($this->form_validation->run() === true)
+        {
+           
+
+            $params = array(
+			  'message' => $this->input->post('message'),
+                          'sms' => $this->input->post('sms'),
+                          'fb' => $this->input->post('fb'),
+                          'twitter'=> $this->input->post('twitter'),
+                          'insertedon'=>date('Y-m-d', time())
+                      );
+
+
+            //insert photo here
+
+            //check if we have a photo
+            if(!empty($_FILES['photo']['name']))
+            {
+                //set the configuration for file upload
+                $upload_config['upload_path'] = './images/churches/';
+                $upload_config['allowed_types'] = 'gif|jpg|png';
+                $upload_config['max_size'] = '0';
+                $upload_config['max_width'] = '2048';
+                $upload_config['max_height'] = '1536';
+                $upload_config['file_name'] = time();
+                //load upload library and initialize defaults
+                $this->load->library('upload', $upload_config);
+
+                //remove old image
+                @unlink($upload_config['upload_path'].$announce['photo']);
+
+                if (!$this->upload->do_upload('photo'))
+                {
+                    $this->session->set_flashdata('error',$this->upload->display_errors());//this returns an array
+                    redirect(base_url().'admin/churches/edit/'.$announce['id']);
+                }
+                $upload_data = $this->upload->data();
+
+                $params['photo'] = $upload_data['file_name'];
+            }
+
+            $this->announcement_model->save($params, $id);
+            //put a flash message
+            $this->session->set_flashdata('message','The record has been updated');
+            redirect(base_url().'admin/announcements');
+
+
+        }
+
+        
+        $data['church'] = $this->announcement_model->find("id=$id");
+
+        $data['content'] = $this->load->view('admin/announcements/edit', $data, true);
+        $this->render('admin', $data);
+
+
+    }
 
     /** Remove Church **/
 
@@ -182,5 +257,5 @@ class Announcements extends MY_Controller
         }
         // ... rest of your code
     }
-
+    
 }

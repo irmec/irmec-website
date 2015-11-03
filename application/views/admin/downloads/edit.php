@@ -5,7 +5,7 @@ $plural_name = plural($name);
 ?>
 
 <div class="col-md-8">
-<a href="/admin/<?=$name?>/">Back to <?=$humanize_name?> List</a>
+<a href="<?php echo base_url()?>admin/<?=$name?>/">Back to <?=$humanize_name?> List</a>
 <h2>Add a <?=singular($humanize_name)?></h2>
 <?php $errors =validation_errors(); ?>
 

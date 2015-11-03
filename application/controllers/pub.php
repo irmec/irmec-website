@@ -248,4 +248,12 @@ class Pub extends MY_Controller {
 		
 	}
 
+    public function alert()
+    {
+
+        $this->load->view('alert');
+    }
+
+
+
 }

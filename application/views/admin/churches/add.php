@@ -1,5 +1,5 @@
 <div class="col-md-8">
-<a href="/admin/churches/">Back to Churches List</a>
+<a href="<?php echo base_url()?>admin/churches/">Back to Churches List</a>
 <h2>Add a Church</h2>
 <?php $errors =validation_errors(); ?>
 
@@ -50,7 +50,17 @@
 <label>Map</label>
 <textarea class="form-control" name="map" placeholder="Place Google Map embed code"><?php echo set_value('map')?></textarea>
 </div>
-
+   
+<div class="form-group">
+<label>Longitude:</label>
+<input type="text" name="longitude" value="<?php echo set_value('longitude'); ?>"  class="form-control" placeholder="Longitude"  />
+</div>
+    
+<div class="form-group">
+<label>Latitude:</label>
+<input type="text" name="latitude" value="<?php echo set_value('latitude'); ?>"  class="form-control" placeholder="Latitude"  />
+</div>
+    
 <div class="form-group">
 <label>Photo:</label>
 <div class="row">

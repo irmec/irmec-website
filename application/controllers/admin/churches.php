@@ -157,7 +157,7 @@ class Churches extends MY_Controller
                           'zip_code' => $this->input->post('zip_code'),
                           'map'=> $this->input->post('map'),
                           'createdon'=>date('Y-m-d', time()),
-						  'longitude' => $this->input->post('longitude'),
+			              'longitude' => $this->input->post('longitude'),
 			              'latitude' => $this->input->post('latitude')
                       );
 
@@ -227,15 +227,15 @@ class Churches extends MY_Controller
 
 
             $params = array(
-			              'name'=>$this->input->post('name'),
+			  'name'=>$this->input->post('name'),
                           'anniversary_month'=>$month,
                           'anniversary_week'=>$week,
                           'address'=>$this->input->post('address'),
                           'town_id'=>$this->input->post('town_id'),
                           'zip_code'=>$this->input->post('zip_code'),
                           'map'=> $this->input->post('map'),
-						  'longitude' => $this->input->post('longitude'),
-						  'latitude' => $this->input->post('latitude')
+			              'longitude' => $this->input->post('longitude'),
+			              'latitude' => $this->input->post('latitude')
                       );
 
 

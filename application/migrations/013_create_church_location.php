@@ -5,6 +5,11 @@ class Migration_Create_church_location extends CI_Migration {
 	{
 		$this->dbforge->add_field('id');
 		$this->dbforge->add_field(array(
+			'church'=> array(
+				'type'=> 'VARCHAR',
+				'constraint'=> 20,
+				'null'=> TRUE
+			),
 			'longitude'=> array(
 				'type'=> 'INT',
 				'constraint'=> 11,

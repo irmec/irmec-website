@@ -1,5 +1,5 @@
 <div class="col-md-12">
-<a href="/admin/churches/">Back to Church List</a>
+<a href="<?php echo base_url()?>admin/churches/">Back to Church List</a>
 <br />
     <div class="panel panel-primary">
     <div class="panel-heading">

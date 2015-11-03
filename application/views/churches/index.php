@@ -41,6 +41,7 @@
 <div class="row">
     <div class="col-md-offset-2 col-md-8">
         <h3>Churches:</h3>
+        <?php if($featured_churches): ?>
         <?php echo $this->pagination->create_links(); ?>
         <table class="table-churches table-bordered  table-striped">
             <thead>
@@ -52,6 +53,7 @@
                 </tr>
             </thead>
             <tbody>
+            
             <?php foreach($featured_churches as $church):?>
             <tr>
                 <td>
@@ -74,7 +76,10 @@
                     <span class="glyphicon glyphicon-link"></span>&nbsp;View Church</a>
                 </td>
             </tr>
-            <?php endforeach; ?>
+           <?php endforeach; ?>
+       <?php else: ?>
+            <p>Nothing to Display</p>
+        <?php endif; ?>
             </tbody>
         </table>
         
