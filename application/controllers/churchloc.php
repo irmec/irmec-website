@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *  @author Carey Dayrit carey.dayrit@gmail.com
  */
-class Pub extends MY_Controller {
+class Churchloc extends MY_Controller {
 
 	 public function __construct() {
         parent::__construct();
@@ -19,37 +19,35 @@ class Pub extends MY_Controller {
 
     public function index() {
 
-    	$this->form_validation->set_rules('latitude', 'Latitude','required');
-    	$this->form_validation->set_rules('longitude', 'Longitude','required');
+       $this->form_validation->set_rules('church', 'Church','required');
+       $this->form_validation->set_rules('longitude', 'Longitude','required');
+       $this->form_validation->set_rules('latitude', 'Latitude','required');
 
-    	$data['select_church'] = $this->church_model->getChurch(); 
+    	$data['select_church'] = $this->church_model->churchloc();
 
-    	 if($this->form_validation->run() === true)
-        {
+    	 if ($this->form_validation->run() == FALSE) { // validation hasn't been passed
+            $data['content'] = $this->load->view('churches/location', $data, true);
+            $this->render('landing', $data);
 
+        } else {
 
-            $params = array(
-            			  'church' => $this->input->post('church'),
-                          'latitude' => $this->input->post('latitude'),
-                          'longitude' => $this->input->post('longitude')
-                          
-                      );
+                 $form_data = array(
 
-         $this->load->model->church_location();
-         $this->church_location->save($params);
-
-         $this->session->set_flashdata('message','The record has been added');
-         redirect(base_url().'churchloc/index');
+                'church' => set_value('church'),
+                'longitude' => set_value('longitude'),
+                'latitude' => set_value('latitude'),
+               
+            );
             
-         }
+               $this->load->model('church_location_model');
+               $this->church_location_model->save($form_data);
 
-       
+                $this->session->set_flashdata('message','The record has been added');
+            	redirect(base_url().'churchloc/index');
 
+            } 
 
-        $data['content'] = $this->load->view('church/location', null, true);
-        $this->render('landing', $data);
     }
-
 
 
 

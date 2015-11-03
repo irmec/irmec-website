@@ -161,4 +161,13 @@ class Church_Model extends MY_Model {
 
 		return (!empty($result)) ? $result : false;
 	}
+
+	public function churchloc() {
+
+		 $query= $this->db->get('churches');
+		 //var_dump($query->result());
+		 return $query->result();
+
+
+	}
 }
