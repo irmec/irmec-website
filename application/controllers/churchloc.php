@@ -15,11 +15,12 @@ class Churchloc extends MY_Controller {
         $this->load->helper('url');
         $this->load->model('contact_us');
         $this->load->model('church_model');
+		$this->load->helper(array('form', 'url'));
     }
 
     public function index() {
 
-       $this->form_validation->set_rules('church', 'Church','required');
+       $this->form_validation->set_rules('church', 'Church', 'callback_church_check');
        $this->form_validation->set_rules('longitude', 'Longitude','required');
        $this->form_validation->set_rules('latitude', 'Latitude','required');
 
@@ -48,6 +49,19 @@ class Churchloc extends MY_Controller {
             } 
 
     }
+	
+	public function church_check($str)
+	{
+	if ($str == '- Select Church -')
+	{
+		$this->form_validation->set_message('church_check', 'Please Select %s!' );
+		return FALSE;
+	}
+	else
+	{
+		return TRUE;
+	}
+	}
 
 
 
