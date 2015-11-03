@@ -34,11 +34,9 @@
 </div>
 
 <div class="form-group">
-
 <label>Longitude:</label>
-<input type="text" name="longitude" value="<?php echo set_value('longtitude'); ?>"  placeholder="longitude" class="form-control"  />
+<input type="text" name="longitude" value="<?php echo set_value('longitude'); ?>" placeholder="longitude"  class="form-control" />
 </div>
-
 
 
 
