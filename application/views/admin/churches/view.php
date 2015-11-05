@@ -18,7 +18,7 @@
         <p><strong>Name</strong>: <?=$church['name']?></p>
         <p><strong>Address</strong>: <?=$church['address']?></p>
         <p><strong>Anniversary</strong>: <?=!empty($church['anniversary_month']) ? $anniversary_months[$church['anniversary_month']] : '' ?>  <?=!empty($church['anniversary_week']) ? '/'.$anniversary_weeks[$church['anniversary_week']].' week' : '' ?></p>
-        <p><strong>City/Town, Province</strong>: <?=form_dropdown('town_id', $towns, $church['town_id']); '' ?></p>
+        <p><strong>City/Town, Province</strong>: <?=!empty($church['town_id']) ? $towns[$church['town_id']] : '' ?></p>
         
     </div>
      <div class="col-md-4">
