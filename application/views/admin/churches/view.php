@@ -17,9 +17,16 @@
     <div class="col-md-4">
         <p><strong>Name</strong>: <?=$church['name']?></p>
         <p><strong>Address</strong>: <?=$church['address']?></p>
-         <p><strong>Anniversary</strong>: <?=!empty($church['anniversary_month']) ? $anniversary_months[$church['anniversary_month']] : '' ?>  <?=!empty($church['anniversary_week']) ? '/'.$anniversary_weeks[$church['anniversary_week']].' week' : '' ?></p>
-        <p><strong>Phone</strong>: <?=!empty($church['phone']) ? $church['phone'] : '' ?></p>
+        <p><strong>Anniversary</strong>: <?=!empty($church['anniversary_month']) ? $anniversary_months[$church['anniversary_month']] : '' ?>  <?=!empty($church['anniversary_week']) ? '/'.$anniversary_weeks[$church['anniversary_week']].' week' : '' ?></p>
+        <p><strong>City/Town, Province</strong>: <?=!empty($church['town_id']) ? $church['town_id'] : '' ?></p>
     </div>
+     <div class="col-md-4">
+        <p><strong>Zip Code</strong>: <?=!empty($church['zip_code']) ? $church['zip_code'] : '' ?></p>
+        <p><strong>Longitude</strong>: <?=$church['longitude']?></p>
+        <p><strong>Latitude</strong>: <?=$church['latitude']?></p>
+
+    </div>
+
     <div class="col-md-3">
      <?php if(!empty($church['map'])):?>
         <?=$church['map']?>
