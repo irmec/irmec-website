@@ -50,18 +50,19 @@ class Churchloc extends MY_Controller {
 
     }
 	
-	public function church_check($str)
-	{
-	if ($str == '- Select Church -')
-	{
-		$this->form_validation->set_message('church_check', 'Please Select %s!' );
-		return FALSE;
-	}
-	else
-	{
-		return TRUE;
-	}
-	}
+	public function church_check($str) {
+
+    	if ($str == '- Select Church -') {
+
+    		$this->form_validation->set_message('church_check', 'Please Select %s!' );
+    		return FALSE;
+
+    	} else {
+
+    		return TRUE;
+    	}
+
+    }
 
 
 
