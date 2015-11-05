@@ -1,13 +1,22 @@
 <div class="col-md-offset-4 col-md-4">
+<?php
+    $message = $this->session->flashdata('message');
+?>
+
+<?php if($message):?>
+<div class="alert alert-info">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+<?php echo $message ?>
+</div>
+
+<?php endif;?>
+
+
 	<h2>Church Location</h2>
 <div class="well">
 
 
 <?php $errors =validation_errors(); ?>
-
-<?php
-    $message = $this->session->flashdata('message');
-?>
 
 <?php if($errors):?>
 <div class="alert alert-warning">
@@ -35,7 +44,7 @@
 
 <div class="form-group">
 <label>Longitude:</label>
-<input type="text" name="longitude" value="<?php echo set_value('longitude'); ?>" placeholder="longitude"  class="form-control" />
+<input type="text" name="longitude" value="<?php echo set_value('longitude'); ?>" placeholder="Longitude"  class="form-control" />
 </div>
 
 
