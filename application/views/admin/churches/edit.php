@@ -55,6 +55,16 @@
 <textarea class="form-control" name="map" rows="8" placeholder="Place Google Map embed code"><?php echo $church['map']?></textarea>
 </div>
 
+<div class="form-group">
+<label>Longitude:</label>
+<input type="text" name="longitude" value="<?php echo $church['longitude']; ?>"  class="form-control"  />
+</div>
+
+<div class="form-group">
+<label>Latitude:</label>
+<input type="text" name="latitude" value="<?php echo $church['latitude']; ?>"  class="form-control"  />
+</div>
+
 
 <div class="form-group">
 <label>Photo:</label>

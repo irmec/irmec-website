@@ -1,57 +1,54 @@
-<div class="col-md-8">
-<a href="/admin/workers/">Back to Workers List</a>
-<h2>Add a Worker</h2>
-<?php $errors =validation_errors(); ?>
-
+<div class="col-md-offset-4 col-md-4">
 <?php
     $message = $this->session->flashdata('message');
 ?>
+
+<?php if($message):?>
+<div class="alert alert-info">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+<?php echo $message ?>
+</div>
+
+<?php endif;?>
+
+
+	<h2>Church Location</h2>
+<div class="well">
+
+
+<?php $errors =validation_errors(); ?>
 
 <?php if($errors):?>
 <div class="alert alert-warning">
     <?php echo $errors; ?>
 </div>
 <?php endif;?>
-<div class="well">
+
 <form method="post" role="form" enctype="multipart/form-data">
 
     <div class="form-group">
         
     <label>Church:</label>
         <select name="church" class="form-control">
+        	<option>- Select Church -</option>
            <?php foreach($select_church as $k=>$v):?>
-                    <option value="<?=$k?>"><?=$v?></option>
+                    <option value="<?=$v->id?>"><?=$v->name?></option>
                 <?php endforeach; ?>
-                </select>        </select>
+                </select>
     </div>
-</div>
-</div>
 
 <div class="form-group">
 <label>Latitude:</label>
-<input type="text" name="latitude" value="<?php echo set_value('latitude'); ?>" placeholder="First name"  class="form-control" />
+<input type="text" name="latitude" value="<?php echo set_value('latitude'); ?>" placeholder="Latitude"  class="form-control" />
 </div>
 
 <div class="form-group">
-
 <label>Longitude:</label>
-<input type="text" name="longitude" value="<?php echo set_value('longtitude'); ?>"  placeholder="Last name" class="form-control"  />
+<input type="text" name="longitude" value="<?php echo set_value('longitude'); ?>" placeholder="Longitude"  class="form-control" />
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-<div>
 <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
-</div>
 </form>
-</div>
-</div>
+

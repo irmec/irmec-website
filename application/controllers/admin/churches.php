@@ -122,6 +122,7 @@ class Churches extends MY_Controller
         // $data['churches'] = $this->church_model->getNumChurches($keyword, $cur_page);
         
         $data['churches'] = $this->church_model->getChurchesSearch($keyword, $cur_page);
+        $data['churches_name'] = $this->church_model->getChurchesSearch($keyword, $cur_page);
 
         $data['content'] = $this->load->view('admin/churches/index', $data, true);
         $this->render('admin', $data);
@@ -304,11 +305,13 @@ class Churches extends MY_Controller
 
         //load models here
         $this->load->model('church_model');
+        $this->load->model('town_model');
 
         $data['anniversary_months'] = $this->anniversary_months;
 
         $data['anniversary_weeks'] = $this->anniversary_weeks;
 
+        $data['towns'] = $this->town_model->select();
         $data['church'] = $this->church_model->find("id=$id");
 
         $data['content'] = $this->load->view('admin/churches/view', $data, true);
