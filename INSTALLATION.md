@@ -35,7 +35,7 @@ Note: There is an alternative way doing the setup please refer to [Vagrant Repos
 
 - now find the .HTACCESS and open it on any editor (notepad,notepad++,Sublime,etc)
 
-- now find the RewrtireBase / (Line 3) and Add this irmec-website/ --- Like this -> RewriteBase /irmec-website/
+- now find the RewriteBase / (Line 3) and Add this irmec-website/ --- Like this -> RewriteBase /irmec-website/
 
 - now find the CONFIG.PHP inside Application folder then config folder, (applications/config/config.php) 
   open it on any editor (notepad,notepad++,Sublime,etc)
@@ -44,7 +44,7 @@ Note: There is an alternative way doing the setup please refer to [Vagrant Repos
 
 ### 3rd step for database
 
-- create a database named it irmec_scratch
+- create a database named it irmec_website
 
 - then paste this on any browser http://localhost/irmec-website/cli/migrate
 
@@ -66,7 +66,7 @@ FINISHED!
 
 - $ cd irmec-website
 
-- create a database irmec-scratch using mysql
+- create a database irmec_website using mysql
 
 - $ php index.php cli/migrate
 
@@ -83,7 +83,7 @@ FINISHED!
 
 - $ cd irmec-website
 
-- create a database irmec-scratch using mysql
+- create a database irmec_website using mysql
 
 - $ php index.php cli/migrate
 
@@ -92,7 +92,7 @@ FINISHED!
 
 ### Access the admin panel http://localhost/irmec-website/admin 
 
-* username: admin@irmevagelicalchurch.org 
+* username: admin@irmec.org 
 
 * password: demo
 
