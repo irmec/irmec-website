@@ -12,19 +12,18 @@
 		<form method="post" role="form" enctype="multipart/form-data">
 			<h4>PERSONAL BACKGROUND</h4>
 			<div class="row">
-			<div class="col-md-3">	
-				<label>Last Name:</label>
-				<input type="text" name="lastname" value="<?php echo set_value('lastname'); ?>"  placeholder="Last Name" class="form-control"  />
-			</div>
-			<div class="col-md-3">
-				<label>First Name:</label>
-				<input type="text" name="firstname" value="<?php echo set_value('firstname'); ?>" placeholder="First Name"  class="form-control" />
-			</div>
-			<div class="col-md-3">
-				<label>Middle Name:</label>
-				<input type="text" name="middlename" value="<?php echo set_value('middlename'); ?>"  placeholder="Middle Name" class="form-control" />
-			</div>
-
+				<div class="col-md-3">	
+					<label>Last Name:</label>
+					<input type="text" name="lastname" value="<?php echo set_value('lastname'); ?>"  placeholder="Last Name" class="form-control"  />
+				</div>
+				<div class="col-md-3">
+					<label>First Name:</label>
+					<input type="text" name="firstname" value="<?php echo set_value('firstname'); ?>" placeholder="First Name"  class="form-control" />
+				</div>
+				<div class="col-md-3">
+					<label>Middle Name:</label>
+					<input type="text" name="middlename" value="<?php echo set_value('middlename'); ?>"  placeholder="Middle Name" class="form-control" />
+				</div>
 				<div class="col-md-3">
 					<label>Nickname</label>
 					<input type="text" name="nickname" value="<?php echo set_value('nickname');?>" placeholder="Nickname" class="form-control" />		
@@ -35,7 +34,6 @@
 					<label>Place of Birth</label>
 					<input type="text" name="place_birth" value="<?php echo set_value('place_birth');?>" placeholder="Place of Birth" class="form-control" />
 				</div>
-			
 			</div>
 			<div class="row">
 				<div class="col-md-6">
@@ -74,15 +72,14 @@
 					</select>
 				</div>
 				<div class="col-md-4">
-					<label>Height</label>
+					<label>Height (cm):</label>
 					<input name="height" class="form-control" placeholder="Height" />		
 				</div>	
 				<div class="col-md-4">
-					<label>Weight</label>
+					<label>Weight (kg):</label>
 					<input name="wieight" class="form-control" placeholder="Weight"/>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-6">
 					<label>E-mail Address</label>
@@ -99,7 +96,6 @@
 					<input type="text" name="cell_phone" value="<?php echo set_value('cell_phone')?>"  class="form-control" placeholder="Cellphone" />		
 				</div>	
 			</div>
-
 			<div class="row">
 				<div class="col-md-5">
 					<label>Passport No.:</label>
@@ -109,8 +105,7 @@
 					<label>SSS No.</label>
 					<input type="text" name="sss" value="<?php echo set_value('sss')?>"  class="form-control" placeholder="SSS" />		
 				</div>	
-			</div>
-			
+			</div>			
 			<div class="row">
 				<div class="col-md-5">
 					<label>Phil. Health:</label>
@@ -126,27 +121,20 @@
 					<label>Permanent Address</label>
 					<input type="text" name="permanent_address" class="form-control" placeholder="Permanent Address" />
 				</div>						
-			</div>
-
-			
-				
-			<div class="row">
-				
+			</div>				
+			<div class="row">				
 				<div class="col-md-4">
 					<label>Photo ID:</label>
 					<input type="file" name="photo" class="form-control" />
 				</div>
 				
-								<div class="col-md-4">
+				<div class="col-md-4">
 					<label>Photo Signature:</label>
 					<input type="file" name="" class="form-control" />
 				</div>
 			</div>
 			
-
-
 			<br />
-
 			<div>
 				<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 			</div>
