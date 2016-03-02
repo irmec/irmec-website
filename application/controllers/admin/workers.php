@@ -77,14 +77,26 @@ class Workers extends MY_Controller
             }
 
             $params = array(
-                          'lastname'=>$this->input->post('lastname'),
-                          'firstname'=>$this->input->post('firstname'),
-                          'middlename'=>$this->input->post('middlename'),
-                          'phone'=>$this->input->post('phone'),
-                          'type'=>$this->input->post('type'),
-                          'gender'=>$this->input->post('gender'),
-                          'status'=>$this->input->post('status'),
-                          'notes'=>$this->input->post('notes'),
+						  /** fields **/
+                          'lastname' =>$this->input->post('lastname'),
+                          'firstname' =>$this->input->post('firstname'),
+                          'middlename' =>$this->input->post('middlename'),
+                          'nickname' => $this->input->post('nickname'),
+                          'place_birth' => $this->input->post('place_birth'),
+                          'status' => $this->input->post('status'),
+                          'gender' => $this->input->post('gender'),
+                          'height' => $this->input->post('height'),
+                          'weight' => $this->input->post('weight'),
+                          'email' => $this->input->post('email'),                                                    
+                          'phone'=> $this->input->post('phone'),
+                          'cell_phone' => $this->input->post('cell_phone'),
+                          'passport' => $this->input->post('passport'),
+                          'sss' => $this->input->post('sss'),
+                          'philhealth' => $this->input->post('philhealth'),
+                          'tin' => $this->input->post('tin'),
+                          'permanent_address' => $this->input->post('permanent_address'),
+                                                    
+                          
 
                           'insertedon'=>date('Y-m-d', time())
                       );
@@ -164,15 +176,24 @@ class Workers extends MY_Controller
                 $dob = $this->input->post('year').'-'.$this->input->post('month').'-'.$this->input->post('day');
             }
             $params = array(
-                          'lastname'=>$this->input->post('lastname'),
-                          'firstname'=>$this->input->post('firstname'),
-                          'middlename'=>$this->input->post('middlename'),
-                          'gender'=>$this->input->post('gender'),
-                          'phone'=>$this->input->post('phone'),
-                          'type'=>$this->input->post('type'),
-                          'status'=>$this->input->post('status'),
-                          'notes'=>$this->input->post('notes')
-                      );
+                          'lastname' =>$this->input->post('lastname'),
+                          'firstname' =>$this->input->post('firstname'),
+                          'middlename' =>$this->input->post('middlename'),
+                          'nickname' => $this->input->post('nickname'),
+                          'place_birth' => $this->input->post('place_birth'),
+                          'status' => $this->input->post('status'),
+                          'gender' => $this->input->post('gender'),
+                          'height' => $this->input->post('height'),
+                          'weight' => $this->input->post('weight'),
+                          'email' => $this->input->post('email'),                                                    
+                          'phone'=> $this->input->post('phone'),
+                          'cell_phone' => $this->input->post('cell_phone'),
+                          'passport' => $this->input->post('passport'),
+                          'sss' => $this->input->post('sss'),
+                          'philhealth' => $this->input->post('philhealth'),
+                          'tin' => $this->input->post('tin'),
+                          'permanent_address' => $this->input->post('permanent_address')
+                     );
             //insert photo here
             if(!empty($dob))
             {

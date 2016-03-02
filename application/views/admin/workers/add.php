@@ -130,7 +130,7 @@
 				
 				<div class="col-md-4">
 					<label>Photo Signature:</label>
-					<input type="file" name="" class="form-control" />
+					<input type="file" name="photo_signature" class="form-control" />
 				</div>
 			</div>
 			

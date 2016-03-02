@@ -132,7 +132,17 @@
 					</div>
 				</div>
 			</div>
-
+			<div class="form-group">
+				<label>Photo Signature:</label>
+				<div class="row">
+					<div class="col-md-4">
+					<?php if(!empty($worker['photo'])):?>
+						<img src="<?=base_url().'images/workers/'.$worker['photo_signature']?>" height="150" />
+					<?php endif; ?>
+						<input type="file" name="photo_signature" class="form-control" />
+					</div>
+				</div>
+			</div>
 			<div class="form-group">
 				<input type="submit" name="submit" value="Save" class="btn btn-primary" />
 			</div>
