@@ -118,7 +118,7 @@
 			<div class="row">
 				<div class="col-md-10">
 					<label>Permanent Address</label>
-					<input type="text" name="permanent_address" class="form-control" placeholder="Permanent Address" value="<?=!empty($worker['address']) ? $worker['address'] : set_value('address') ?>" />
+					<input type="text" name="permanent_address" class="form-control" placeholder="Permanent Address" value="<?=!empty($worker['permanent_address']) ? $worker['permanent_address'] : set_value('permanent_address') ?>" />
 				</div>						
 			</div>	
 			<div class="form-group">

@@ -1,6 +1,6 @@
 /.project
-ribbit/config/config.php
-ribbit/config/database.php
+application/config/config.php
+application/config/database.php
 */config/development
 */logs/log-*.php
 !*/logs/index.html
