@@ -76,7 +76,7 @@
 				</div>	
 				<div class="col-md-4">
 					<label>Weight (kg):</label>
-					<input name="wieight" class="form-control" placeholder="Weight" value="<?=!empty($worker['weight']) ? $worker['weight'] : set_value('weight') ?>"/>
+					<input name="weight" class="form-control" placeholder="Weight" value="<?=!empty($worker['weight']) ? $worker['weight'] : set_value('weight') ?>"/>
 				</div>
 			</div>
 			<div class="row">

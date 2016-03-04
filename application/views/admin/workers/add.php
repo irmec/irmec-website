@@ -77,7 +77,7 @@
 				</div>	
 				<div class="col-md-4">
 					<label>Weight (kg):</label>
-					<input name="wieight" class="form-control" placeholder="Weight"/>
+					<input name="weight" class="form-control" placeholder="Weight"/>
 				</div>
 			</div>
 			<div class="row">
