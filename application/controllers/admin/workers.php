@@ -39,7 +39,7 @@ class Workers extends MY_Controller
         }
         else
         {
-            $data['workers'] = $this->worker_model->findAll();
+            $data['workers'] = $this->worker_model->findAll(null,null,"insertedon DESC,updatedon DESC");
         }
 
 

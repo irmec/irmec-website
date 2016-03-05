@@ -15,10 +15,10 @@
         <?php endif;?>
     </div>
     <div class="col-md-7">
-        <p><strong>Name</strong>: <?=$worker['firstname'].' '.(!empty($worker['middlename'][0]) ? $worker['middlename'][0].'. ' : '').$worker['lastname']?></p>
-        <p><strong>Status</strong>: <?=$worker['status']?></p>
-        <p><strong>Birthday</strong>: <?=!empty($worker['dob']) ? date('F j, Y', strtotime($worker['dob'])) : '' ?></p>
-        <p><strong>Phone</strong>: <?=!empty($worker['phone']) ? $worker['phone'] : '' ?></p>
+        <p><strong>Name:</strong> <?=$worker['firstname'].' '.(!empty($worker['middlename'][0]) ? $worker['middlename'][0].'. ' : '').$worker['lastname']?></p>
+        <p><strong>Place of Birth:</strong> <?=!empty($worker['place_birth']) ? $worker['place_birth'] : ''?></p>
+        <p><strong>Birthday</strong> <?=!empty($worker['dob']) ? date('F j, Y', strtotime($worker['dob'])) : '' ?></p>
+        <p><strong>Phone</strong> <?=!empty($worker['cell_phone']) ? $worker['cell_phone'] : '' ?></p>
     </div>
      </div>
     </div>

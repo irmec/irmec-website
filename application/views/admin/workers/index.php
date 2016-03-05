@@ -45,7 +45,7 @@
 <tr>
 <th>#</th>
 <th class="col-sm-2">Photo</th>
-<th>Type</th>
+<th>Gender</th>
 <th>Name</th>
 <th>Phone</th>
 <th>Action</th>
@@ -61,9 +61,9 @@
             <img width="100" src="<?php echo base_url().'images/no_image.jpg'?>" class="img-thumbnail" >
         <?php endif;?>
         </td>
-        <td><?php echo $worker['type']?></td>
-        <td><?=$worker['lastname'].', '.$worker['firstname']?></td>
-        <td><small><?php echo $worker['phone']?></small></td>
+        <td><?php echo $worker['gender']?></td>
+        <td><?=$worker['lastname'].', '.$worker['firstname'].' '.substr($worker['middlename'],0,1).'.'?></td>
+        <td><small><?php echo $worker['cell_phone']?></small></td>
         <td>
         <a href="<?php echo base_url().'admin/workers/view/'.$worker['id']?>" class="btn btn-success btn-xs" role="button">
         <span class="glyphicon glyphicon-eye-open"></span>&nbsp;View</a>
