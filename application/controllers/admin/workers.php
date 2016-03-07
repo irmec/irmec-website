@@ -55,12 +55,9 @@ class Workers extends MY_Controller
 
     public function add()
     {
-
-        //load library
-
-
-        //load helpers here
-
+        $this->load->model('worker_model');
+        $this->load->model('workers_family_model');
+         
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required');
         $this->form_validation->set_rules('middlename', 'Middle Name', 'required');
@@ -78,28 +75,43 @@ class Workers extends MY_Controller
 
             $params = array(
 						  /** fields **/
-                          'lastname' =>$this->input->post('lastname'),
-                          'firstname' =>$this->input->post('firstname'),
-                          'middlename' =>$this->input->post('middlename'),
-                          'nickname' => $this->input->post('nickname'),
-                          'place_birth' => $this->input->post('place_birth'),
-                          'status' => $this->input->post('status'),
-                          'gender' => $this->input->post('gender'),
-                          'height' => $this->input->post('height'),
-                          'weight' => $this->input->post('weight'),
-                          'email' => $this->input->post('email'),                                                    
-                          'phone'=> $this->input->post('phone'),
-                          'cell_phone' => $this->input->post('cell_phone'),
-                          'passport' => $this->input->post('passport'),
-                          'sss' => $this->input->post('sss'),
-                          'philhealth' => $this->input->post('philhealth'),
-                          'tin' => $this->input->post('tin'),
-                          'permanent_address' => $this->input->post('permanent_address'),
-                                                    
-                          
-
-                          'insertedon'=>date('Y-m-d', time())
-                      );
+				  'lastname' =>$this->input->post('lastname'),
+				  'firstname' =>$this->input->post('firstname'),
+				  'middlename' =>$this->input->post('middlename'),
+				  'nickname' => $this->input->post('nickname'),
+				  'place_birth' => $this->input->post('place_birth'),
+				  'status' => $this->input->post('status'),
+				  'gender' => $this->input->post('gender'),
+				  'height' => $this->input->post('height'),
+				  'weight' => $this->input->post('weight'),
+				  'email' => $this->input->post('email'),                                                    
+				  'phone'=> $this->input->post('phone'),
+				  'cell_phone' => $this->input->post('cell_phone'),
+				  'passport' => $this->input->post('passport'),
+				  'sss' => $this->input->post('sss'),
+				  'philhealth' => $this->input->post('philhealth'),
+				  'tin' => $this->input->post('tin'),
+				  'permanent_address' => $this->input->post('permanent_address'),
+																	  
+				  'insertedon'=>date('Y-m-d', time())
+                );
+			
+			$params_family = array(
+				'fathers_name'=> $this->input->post('fathers_name'),
+				'fathers_province'=> $this->input->post('fathers_province'),
+				'mothers_name'=> $this->input->post('mothers_name'),
+				'mothers_province'=> $this->input->post('mothers_province'),
+				'spouse_name'=> $this->input->post('spouse_name'),
+				'spouse_dob'=> $this->input->post('spouse_dob'),
+				'wedding_dow'=> $this->input->post('wedding_dow'),
+				'children'=> $this->input->post('children'),
+				'spouse_occupation'=> $this->input->post('spouse_occupation'),
+				'present_address'=> $this->input->post('present_address'),
+				'notify_person'=> $this->input->post('notify_person'),
+				'notify_address'=> $this->input->post('notify_address'),
+				'notify_phone'=> $this->input->post('notify_phone')						
+				);
+				
 
             if(!empty($dob))
             {
@@ -132,9 +144,11 @@ class Workers extends MY_Controller
             }
 
 
-            $this->load->model('worker_model');
-            $this->worker_model->save($params);
-
+            
+            $id = $this->worker_model->save($params);
+            $params_family['workers_id']= $id;
+            $this->workers_family_model->save($params_family);
+			
             $this->session->set_flashdata('message','The record has been added');
             redirect(base_url().'admin/workers/index');
         }
@@ -149,15 +163,23 @@ class Workers extends MY_Controller
         edit
         id is the pastor's id
      */
-    public function edit($id)
+    public function edit($id = null)
     {
         //initialize variables
+        if(empty($id)){
+			redirect('/admin/workers');
+		}
         $data=array();
 
         //load models here
         $this->load->model('worker_model');
+        $this->load->model('workers_family_model');
 
         $worker = $this->worker_model->find("id=$id");
+        $workers_family = $this->workers_family_model->find('workers_id='. $id);
+        if(is_array($workers_family)){
+			$worker = array_merge($worker, $workers_family);
+		}
 
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required');
@@ -176,24 +198,41 @@ class Workers extends MY_Controller
                 $dob = $this->input->post('year').'-'.$this->input->post('month').'-'.$this->input->post('day');
             }
             $params = array(
-                          'lastname' =>$this->input->post('lastname'),
-                          'firstname' =>$this->input->post('firstname'),
-                          'middlename' =>$this->input->post('middlename'),
-                          'nickname' => $this->input->post('nickname'),
-                          'place_birth' => $this->input->post('place_birth'),
-                          'status' => $this->input->post('status'),
-                          'gender' => $this->input->post('gender'),
-                          'height' => $this->input->post('height'),
-                          'weight' => $this->input->post('weight'),
-                          'email' => $this->input->post('email'),                                                    
-                          'phone'=> $this->input->post('phone'),
-                          'cell_phone' => $this->input->post('cell_phone'),
-                          'passport' => $this->input->post('passport'),
-                          'sss' => $this->input->post('sss'),
-                          'philhealth' => $this->input->post('philhealth'),
-                          'tin' => $this->input->post('tin'),
-                          'permanent_address' => $this->input->post('permanent_address')
-                     );
+				  'lastname' =>$this->input->post('lastname'),
+				  'firstname' =>$this->input->post('firstname'),
+				  'middlename' =>$this->input->post('middlename'),
+				  'nickname' => $this->input->post('nickname'),
+				  'place_birth' => $this->input->post('place_birth'),
+				  'status' => $this->input->post('status'),
+				  'gender' => $this->input->post('gender'),
+				  'height' => $this->input->post('height'),
+				  'weight' => $this->input->post('weight'),
+				  'email' => $this->input->post('email'),                                                    
+				  'phone'=> $this->input->post('phone'),
+				  'cell_phone' => $this->input->post('cell_phone'),
+				  'passport' => $this->input->post('passport'),
+				  'sss' => $this->input->post('sss'),
+				  'philhealth' => $this->input->post('philhealth'),
+				  'tin' => $this->input->post('tin'),
+				  'permanent_address' => $this->input->post('permanent_address')
+                );
+                     
+            $params_family = array(
+				'fathers_name'=> $this->input->post('fathers_name'),
+				'fathers_province'=> $this->input->post('fathers_province'),
+				'mothers_name'=> $this->input->post('mothers_name'),
+				'mothers_province'=> $this->input->post('mothers_province'),
+				'spouse_name'=> $this->input->post('spouse_name'),
+				'spouse_dob'=> $this->input->post('spouse_dob'),
+				'wedding_dow'=> $this->input->post('wedding_dow'),
+				'spouse_occupation'=> $this->input->post('spouse_occupation'),
+				'children'=> $this->input->post('children'),
+				'present_address'=> $this->input->post('present_address'),
+				'notify_person'=> $this->input->post('notify_person'),
+				'notify_address'=> $this->input->post('notify_address'),
+				'notify_phone'=> $this->input->post('notify_phone'),
+				'workers_id'=> $id			
+				);
             //insert photo here
             if(!empty($dob))
             {
@@ -225,7 +264,15 @@ class Workers extends MY_Controller
 
                 $params['photo'] = $upload_data['file_name'];
             }
-            $this->worker_model->save($params, $id);
+            $this->worker_model->save($params, $id); 
+            //find the workers family, else save it
+            if($workers_family_id = $this->workers_family_model->find('workers_id='.$id,'id')){
+				$this->workers_family_model->save($params_family, $workers_family_id['id']);				
+			}else{
+				$this->workers_family_model->save($params_family);								
+			}
+                                   
+            $this->workers_family_model->save($params_family);
             //put a flash message
             $this->session->set_flashdata('message','The record has been updated');
             redirect(base_url().'admin/workers');

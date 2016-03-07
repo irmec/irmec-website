@@ -30,7 +30,12 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="<?php echo base_url().'admin/'?>">IRM Evangelical Church</a>
+          
         </div>
+         <ul class="nav navbar-nav">
+        <li ><a href="<?=site_url()?>admin/churches">Churches</a></li>
+        <li><a href="<?=site_url()?>admin/workers">Workers</a></li>
+        </ul>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo base_url().'admin/'?>">Dashboard</a></li>
@@ -47,20 +52,8 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-                <li><a href="<?php echo base_url()?>admin/announcements">Announcements</a></li>
-                <li><a href="<?php echo base_url()?>admin/workers">Workers</a>
-                </li>
-                <li><a href="<?php echo base_url()?>admin/churches">Churches</a>
-                </li>
-                <li><a href="<?php echo base_url()?>admin/downloads">Downloads</a></li>
-
-          </ul>
-
-        </div>
         <!-- start Main -->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-12 col-md-12 main">
              <?php echo $content?>
         </div><!-- end Main =-->
       </div>
@@ -71,6 +64,7 @@
 
     <!-- JavaScript -->
     <script src="<?=base_url()?>javascript/jquery-1.7.1.min.js"></script>
+    <script src="<?=base_url()?>css/bootstrap/js/bootstrap.js"></script>
     <script src="<?=base_url()?>css/bootstrap/js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Menu Toggle -->
