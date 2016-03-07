@@ -109,7 +109,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-8">
 								<strong>Permanent Address:</strong> <?=!empty($worker['permanent_address']) ? $worker['permanent_address'] : ''?>
 							</div>						
 						</div>
