@@ -29,7 +29,13 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-5">
+								<h3>PERSONAL BACKGROUND</h3>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-md-4">
 								<strong>Name:</strong> <?=$worker['firstname'].' '.(!empty($worker['middlename'][0]) ? $worker['middlename'][0].'. ' : '').$worker['lastname']?>
@@ -48,7 +54,7 @@
 								<strong>Date of Birth:</strong> <?=!empty($worker['dob']) ? date('F j, Y', strtotime($worker['dob'])) : '' ?>
 							</div>
 							<div class="col-md-3">
-								<strong>Civi Status:</strong> <?=!empty($worker['status']) ? $worker['status'] : ''?>
+								<strong>Civil Status:</strong> <?=!empty($worker['status']) ? $worker['status'] : ''?>
 							</div>
 						</div>
 						<div class="row">
@@ -105,8 +111,12 @@
 						<div class="row">
 							<div class="col-md-5">
 								<strong>Permanent Address:</strong> <?=!empty($worker['permanent_address']) ? $worker['permanent_address'] : ''?>
+							</div>						
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<h3>FAMILY INFORMATION</h3>
 							</div>
-						
 						</div>
 					</div>
 				</div>
