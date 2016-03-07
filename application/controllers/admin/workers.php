@@ -1,9 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * @author Carey Dayrit carey.dayrit@gmail.com
-* Sample CRUD
 */
-
+include(APPPATH. 'libraries/barcode_generator/BarcodeGenerator.php');
+include(APPPATH. 'libraries/barcode_generator/BarcodeGeneratorPNG.php');
+include(APPPATH. 'libraries/barcode_generator/BarcodeGeneratorSVG.php');
+include(APPPATH. 'libraries/barcode_generator/BarcodeGeneratorHTML.php');
 
 class Workers extends MY_Controller
 {
@@ -318,4 +320,14 @@ class Workers extends MY_Controller
         $data['content'] = $this->load->view('admin/workers/view', $data, true);
         $this->render('admin', $data);
     }
+    
+    public function bar_code($id)
+    {
+		$generatorPNG = new Picqer\Barcode\BarcodeGeneratorPNG();
+		$barcode = 199200000000 + $id;
+		header('Content-type: image/png');
+		
+		echo $generatorPNG->getBarcode('1992', $generatorPNG::TYPE_CODE_128);
+		
+	}
 }

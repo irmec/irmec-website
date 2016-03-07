@@ -67,7 +67,7 @@ class Migration_Modify_Workers extends CI_Migration
 				),
 				'permanent_address'=> array(
 					'type'=> 'VARCHAR',
-					'constraint'=> 30,
+					'constraint'=> 150,
 					'null'=> FALSE
 				),
 				'photo_signature'=>array(

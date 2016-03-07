@@ -59,7 +59,7 @@ class Migration_Create_Workers_Family extends CI_Migration {
 			),
 			'present_address'=> array(
 				'type'=> 'VARCHAR',
-				'constraint'=> 50,
+				'constraint'=> 150,
 				'null'=> TRUE			
 			),
 			'notify_person'=> array(
@@ -69,7 +69,7 @@ class Migration_Create_Workers_Family extends CI_Migration {
 			),
 			'notify_address'=> array(
 				'type'=> 'VARCHAR',
-				'constraint'=> 50,
+				'constraint'=> 150,
 				'null'=> TRUE			
 			),
 			'notify_phone'=> array(
