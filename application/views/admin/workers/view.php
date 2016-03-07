@@ -86,7 +86,28 @@
 								<strong>Cellhone No.:</strong> <?=!empty($worker['cell_phone']) ? $worker['cell_phone'] : ''?>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>Passport No.:</strong> <?=!empty($worker['passport']) ? $worker['passport'] : ''?>
+							</div>
+							<div class="col-md-3">
+								<strong>SSS No.:</strong> <?=!empty($worker['sss']) ? $worker['sss'] : ''?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>PhilHealth No.:</strong> <?=!empty($worker['philhealth']) ? $worker['philhealth'] : ''?>
+							</div>
+							<div class="col-md-3">
+								<strong>TIN No.:</strong> <?=!empty($worker['tin']) ? $worker['tin'] : ''?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<strong>Permanent Address:</strong> <?=!empty($worker['permanent_address']) ? $worker['permanent_address'] : ''?>
+							</div>
 						
+						</div>
 					</div>
 				</div>
 			</div>
