@@ -23,9 +23,9 @@
 								<br />
 								<label>ID Number:</label>
 								<br />
-								<?php echo 199203000000 + $worker['id']?>
+								<?php echo 199200000 + $worker['id']?>
 								<br />
-								<img src="<?php echo base_url().'admin/workers/bar_code/'.$worker['id']?>" class="img-thumbnail"/>        
+								<img src="<?php echo base_url().'admin/workers/bar_code/'.$worker['id']?>" class=""/>        
 							</div>
 						</div>
 					</div>

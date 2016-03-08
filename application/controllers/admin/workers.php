@@ -324,10 +324,10 @@ class Workers extends MY_Controller
     public function bar_code($id)
     {
 		$generatorPNG = new Picqer\Barcode\BarcodeGeneratorPNG();
-		$barcode = 199200000000 + $id;
+		$barcode = 199200000 + $id;
 		header('Content-type: image/png');
 		
-		echo $generatorPNG->getBarcode('1992', $generatorPNG::TYPE_CODE_128);
+		echo $generatorPNG->getBarcode($barcode, $generatorPNG::TYPE_CODE_128);
 		
 	}
 }
