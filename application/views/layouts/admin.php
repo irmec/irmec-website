@@ -35,6 +35,7 @@
          <ul class="nav navbar-nav">
         <li ><a href="<?=site_url()?>admin/churches">Churches</a></li>
         <li><a href="<?=site_url()?>admin/workers">Workers</a></li>
+         <li><a href="<?=site_url()?>admin/downloads">Downloads</a></li>
         </ul>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
