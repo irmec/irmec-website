@@ -15,6 +15,8 @@
 				<ul class="nav nav-tabs" role="tablist">
 					<li role="presentation" class="active"><a href="#personal" aria-controls="personal" role="tab" data-toggle="tab">Personal</a></li>
 					<li role="presentation"><a href="#family" aria-controls="family" role="tab" data-toggle="tab">Family</a></li>
+					<li role="presentation"><a href="#ministry" aria-controls="ministry" role="tab" data-toggle="tab">Ministry</a></li>
+					
 				</ul>
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="personal">
@@ -213,6 +215,53 @@
 							</div>						
 						</div>
 					</div>
+					<div role="tabpanel" class="tab-pane" id="ministry">
+						<h4>MINISTRY EXPERIENCE</h4>
+						<div class="row">
+							<div class="col-md-3">
+								<label>Rank</label>
+							</div>
+							<div class="col-md-2">
+								<label>From</label>
+							</div>
+							<div class="col-md-2">
+								<label>To</label>
+							</div>						
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								Ministry Assistant (Volunteer Worker)
+							</div>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="volunteer_from">
+							</div>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="volunteer_to">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								Pastor / Deaconness (Probationary)
+							</div>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="probationary_from" >
+							</div>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="probationary_to">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								Ordained Pastor / Ordained Deaconess (Ordained)
+							</div>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="ordained_from">
+							</div>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="ordained_to">
+							</div>
+						</div>						
+					</div>								
 				</div>
 			<br />
 			<br />

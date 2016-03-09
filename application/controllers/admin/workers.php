@@ -59,6 +59,8 @@ class Workers extends MY_Controller
     {
         $this->load->model('worker_model');
         $this->load->model('workers_family_model');
+        $this->load->model('workers_ministry_model');
+        
          
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required');
@@ -113,6 +115,18 @@ class Workers extends MY_Controller
 				'notify_address'=> $this->input->post('notify_address'),
 				'notify_phone'=> $this->input->post('notify_phone')						
 				);
+			
+							
+			$params_ministry = array(
+				'volunteer_from'=> $this->input->post('volunteer_from'),
+				'volunteer_to'=> $this->input->post('volunteer_to'),
+				'probationary_from'=> $this->input->post('probationary_from'),
+				'probationary_to'=> $this->input->post('probationary_to'),
+				'ordained_from'=> $this->input->post('ordained_from'),
+				'ordained_to'=> $this->input->post('ordained_to')
+			
+			);
+			
 				
 
             if(!empty($dob))
@@ -150,6 +164,8 @@ class Workers extends MY_Controller
             $id = $this->worker_model->save($params);
             $params_family['workers_id']= $id;
             $this->workers_family_model->save($params_family);
+            $params_ministry['workers_id']= $id;
+            $this->workers_ministry_model->save($params_ministry);
 			
             $this->session->set_flashdata('message','The record has been added');
             redirect(base_url().'admin/workers/index');
@@ -176,11 +192,16 @@ class Workers extends MY_Controller
         //load models here
         $this->load->model('worker_model');
         $this->load->model('workers_family_model');
+        $this->load->model('workers_ministry_model');
 
         $worker = $this->worker_model->find("id=$id");
         $workers_family = $this->workers_family_model->find('workers_id='. $id);
         if(is_array($workers_family)){
 			$worker = array_merge($worker, $workers_family);
+		}
+		$workers_ministry = $this->workers_ministry_model->find('workers_id='.$id);
+		if(is_array($workers_ministry)){
+			$worker = array_merge($worker, $workers_ministry);			
 		}
 
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
@@ -235,6 +256,18 @@ class Workers extends MY_Controller
 				'notify_phone'=> $this->input->post('notify_phone'),
 				'workers_id'=> $id			
 				);
+				
+				
+			$params_ministry = array(
+				'volunteer_from'=> $this->input->post('volunteer_from'),
+				'volunteer_to'=> $this->input->post('volunteer_to'),
+				'probationary_from'=> $this->input->post('probationary_from'),
+				'probationary_to'=> $this->input->post('probationary_to'),
+				'ordained_from'=> $this->input->post('ordained_from'),
+				'ordained_to'=> $this->input->post('ordained_to'),
+				'workers_id'=> $id
+			
+			);
             //insert photo here
             if(!empty($dob))
             {
@@ -271,10 +304,16 @@ class Workers extends MY_Controller
             if($workers_family_id = $this->workers_family_model->find('workers_id='.$id,'id')){
 				$this->workers_family_model->save($params_family, $workers_family_id['id']);				
 			}else{
-				$this->workers_family_model->save($params_family);								
+				$this->Workers_family_model->save($params_family);								
 			}
-                                   
-            $this->workers_family_model->save($params_family);
+			
+			if($workers_ministry_id  = $this->workers_ministry_model->find('workers_id='.$id, 'id')){
+				$this->workers_ministry_model->save($params_ministry, $workers_ministry_id['id']);				
+			}else{
+				$this->workers_ministry_model->save($params_ministry);				
+			}				
+			
+       
             //put a flash message
             $this->session->set_flashdata('message','The record has been updated');
             redirect(base_url().'admin/workers');

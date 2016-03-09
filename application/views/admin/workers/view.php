@@ -4,7 +4,7 @@
 		<br />
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				Workers Profile
+				Workers Profile&nbsp;&nbsp;<a href="<?php echo base_url().'admin/workers/edit/'.$worker['id']?>" class="btn btn-default">Edit</a>
 			</div>
 			<div class="panel-body">
 				<div class="row">		
