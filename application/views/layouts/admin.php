@@ -35,13 +35,13 @@
          <ul class="nav navbar-nav">
         <li ><a href="<?=site_url()?>admin/churches">Churches</a></li>
         <li><a href="<?=site_url()?>admin/workers">Workers</a></li>
-         <li><a href="<?=site_url()?>admin/downloads">Downloads</a></li>
+        <li><a href="<?=site_url()?>admin/downloads">Downloads</a></li>
+        
         </ul>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo base_url().'admin/'?>">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="<?=site_url()?>admin/messages">Messages</a></li>             
             <li><a href="<?php echo base_url()?>logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a> </li>
           </ul>
           <form class="navbar-form navbar-right">
