@@ -304,7 +304,7 @@ class Workers extends MY_Controller
             if($workers_family_id = $this->workers_family_model->find('workers_id='.$id,'id')){
 				$this->workers_family_model->save($params_family, $workers_family_id['id']);				
 			}else{
-				$this->Workers_family_model->save($params_family);								
+				$this->workers_family_model->save($params_family);								
 			}
 			
 			if($workers_ministry_id  = $this->workers_ministry_model->find('workers_id='.$id, 'id')){
