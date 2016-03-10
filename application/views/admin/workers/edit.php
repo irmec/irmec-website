@@ -138,7 +138,7 @@
 								<?php if(!empty($worker['photo'])):?>
 									<img src="<?=base_url().'images/workers/'.$worker['photo']?>" height="150" />
 								<?php endif; ?>
-									<input type="file" name="photo" class="form-control" />
+									<input type="file" name="photo" class="form-control" accept="image/*" capture="camera" />
 								</div>
 							</div>
 						</div>

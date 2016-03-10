@@ -135,7 +135,7 @@
 						<div class="row">				
 							<div class="col-md-4">
 								<label>Photo ID:</label>
-								<input type="file" name="photo" class="form-control" />
+								<input type="file" name="photo" class="form-control" accept="image/*" capture="camera" />
 							</div>
 							
 							<div class="col-md-4">
