@@ -77,14 +77,6 @@
 							</div>						
 						</div>
 						<div class="row">
-							<div class="col-md-5">
-								<strong>Facebook:</strong>
-								<?php if(!empty($worker['facebook'])):?>
-									<?=$worker['facebook']?>
-								<?php endif;?>
-							</div>
-						</div>
-						<div class="row">
 							<div class="col-md-4">
 								<strong>Telephone No.:</strong> <?=!empty($worker['phone']) ? $worker['phone'] : ''?>
 							</div>

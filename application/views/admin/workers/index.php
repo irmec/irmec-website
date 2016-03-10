@@ -48,27 +48,31 @@
 <th>Gender</th>
 <th>Name</th>
 <th>Phone</th>
-<th>Action</th>
+<th class="text-center">Edit</th>
+<th class="text-center">Remove</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach($workers as $worker):?>
     <tr>
-        <td><?php echo $worker['id']?></td>
-        <td class="col-md-2"><?php if(!empty($worker['photo'])):?>
+        <td><a href="<?php echo base_url().'admin/workers/edit/'.$worker['id']?>"><?php echo $worker['id']?></a></td>
+        <td class="col-md-2">
+		<a href="<?php echo base_url().'admin/workers/view/'.$worker['id']?>">        
+		<?php if(!empty($worker['photo'])):?>
             <img width="100" src="<?php echo base_url().'images/workers/'.$worker['photo']?>" class="img-thumbnail" >
         <?php else:?>
             <img width="100" src="<?php echo base_url().'images/no_image.jpg'?>" class="img-thumbnail" >
         <?php endif;?>
+		</a>
         </td>
         <td><?php echo $worker['gender']?></td>
         <td><?=$worker['lastname'].', '.$worker['firstname'].' '.substr($worker['middlename'],0,1).'.'?></td>
         <td><small><?php echo $worker['cell_phone']?></small></td>
-        <td>
-        <a href="<?php echo base_url().'admin/workers/view/'.$worker['id']?>" class="btn btn-success btn-xs" role="button">
-        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;View</a>
+        <td class="col-md-1 text-center">        
         <a href="<?php echo base_url().'admin/workers/edit/'.$worker['id']?>" class="btn btn-info btn-xs" role="button">
         <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit</a>
+        </td>
+        <td class="col-md-1 text-center">
         <a href="<?php echo base_url().'admin/workers/remove/'.$worker['id']?>" onclick="return confirm('Remove record ?')" class="btn btn-danger btn-xs" role="button">
         <span class="glyphicon glyphicon-trash"></span>&nbsp;
         Remove</a>
