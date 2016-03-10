@@ -29,16 +29,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo base_url().'admin/'?>">IRM Evangelical Church</a>
-          
-        </div>
-         <ul class="nav navbar-nav">
-        <li ><a href="<?=site_url()?>admin/churches">Churches</a></li>
-        <li><a href="<?=site_url()?>admin/workers">Workers</a></li>
-        <li><a href="<?=site_url()?>admin/downloads">Downloads</a></li>
-        
-        </ul>
+          <a class="navbar-brand" href="<?php echo base_url().'admin/'?>">IRM Evangelical Church</a>           
+        </div>                 
         <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="<?=site_url()?>admin/churches">Churches</a></li>
+				<li><a href="<?=site_url()?>admin/workers">Churches</a></li>
+				<li><a href="<?=site_url()?>admin/downloads">Downloads</a></li>
+			</ul>  
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo base_url().'admin/'?>">Dashboard</a></li>
             <li><a href="<?=site_url()?>admin/messages">Messages</a></li>             
