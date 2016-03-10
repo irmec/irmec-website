@@ -146,7 +146,7 @@
 					<label>Photo Signature:</label>
 					<div class="row">
 						<div class="col-md-4">
-						<?php if(!empty($worker['photo'])):?>
+						<?php if(!empty($worker['photo_signature'])):?>
 							<img src="<?=base_url().'images/workers/'.$worker['photo_signature']?>" height="150" />
 						<?php endif; ?>
 							<input type="file" name="photo_signature" class="form-control" />
