@@ -110,6 +110,111 @@
 								<h3>FAMILY INFORMATION</h3>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Father's Name:</strong> <?=!empty($worker['fathers_name']) ? $worker['fathers_name'] : '' ?>
+							</div>
+							<div class="col-md-4">
+								<strong>Province:</strong> <?=!empty($worker['fathers_province']) ? $worker['fathers_province'] : '' ?>
+							</div>							
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Mother's Name:</strong> <?=!empty($worker['mothers_name']) ? $worker['mothers_name'] : '' ?>
+							</div>
+							<div class="col-md-4">
+								<strong>Province:</strong> <?=!empty($worker['mothers_province']) ? $worker['mothers_province'] : '' ?>
+							</div>							
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Name of Spouse:</strong> <?=!empty($worker['spouse_name']) ? $worker['spouse_name'] : '' ?>
+							</div>
+							<div class="col-md-4">
+								<strong>Date of Birth:</strong> <?=!empty($worker['spouse_dob']) ? $worker['spouse_dob'] : '' ?>
+							</div>							
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Date of Wedding:</strong> <?=!empty($worker['wedding_dow']) ? $worker['wedding_dow'] : '' ?>
+							</div>
+							<div class="col-md-4">
+								<strong>Occupation:</strong> <?=!empty($worker['occupation']) ? $worker['occupation'] : '' ?>
+							</div>							
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Children:</strong>
+								<?php 
+									echo !empty($worker['children'])? nl2br($worker['children']) : '';
+								?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">							
+								<strong>Present Address:</strong> <?=!empty($worker['present_address'])? $worker['present_address'] : ''; ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Person to notify in case of emergency:</strong> <?=!empty($worker['notify_person'])? $worker['notify_person'] : ''; ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Address:</strong> &nbsp; <?=!empty($worker['notify_address']) ? $worker['notify_address'] : ''; ?>
+							</div>
+							<div class="col-md-4">
+								<strong>Tel/Cellphone:</strong> <?=!empty($worker['notify_phone']) ? $worker['notify_phone'] : ''; ?>
+							</div>
+						</div>
+						<div class="row">
+							<h4>MINISTRY EXPERIENCE</h4>
+						<div class="row">
+							<div class="col-md-3">
+								<label>Rank</label>
+							</div>
+							<div class="col-md-2">
+								<label>From</label>
+							</div>
+							<div class="col-md-2">
+								<label>To</label>
+							</div>						
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<strong>Ministry Assistant (Volunteer Worker)</strong>
+							</div>
+							<div class="col-md-2">
+								<?=!empty($worker['volunteer_from'])? $worker['volunteer_from'] : ''?>
+							</div>
+							<div class="col-md-2">
+								<?=!empty($worker['volunteer_to'])? $worker['volunteer_to'] : ''?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								Pastor / Deaconness (Probationary)
+							</div>
+							<div class="col-md-2">
+								<?=!empty($worker['probationary_from'])? $worker['probationary_from'] : ''?>
+							</div>
+							<div class="col-md-2">
+								<?=!empty($worker['probationary_to'])? $worker['probationary_to'] : ''?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								Ordained Pastor / Ordained Deaconess (Ordained)
+							</div>
+							<div class="col-md-2">
+								<?=!empty($worker['ordained_from'])? $worker['ordained_from'] : ''?>
+							</div>
+							<div class="col-md-2">
+								<?=!empty($worker['ordained_to'])? $worker['ordained_to'] : ''?>
+							</div>
+						</div>	
+						</div>
 					</div>
 				</div>
 			</div>
