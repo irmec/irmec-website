@@ -345,9 +345,13 @@ class Workers extends MY_Controller
         redirect(base_url().'admin/workers');
     }
 
-    public function view($id)
+    public function view($id=null)
     {
         //initialize variables
+        if(empty($id)){
+			redirect('admin/workers');
+			
+		}
         $data=array();
 
         //load models here
@@ -355,16 +359,18 @@ class Workers extends MY_Controller
 		$this->load->model('workers_family_model');
         $this->load->model('workers_ministry_model');
 
+		$worker = $this->worker_model->find("id=$id");
+
         $workers_family = $this->workers_family_model->find('workers_id='. $id);
-        if(is_array($workers_family)){
+        if(is_array($workers_family) && count($workers_family)){
 			$worker = array_merge($worker, $workers_family);
 		}
 		$workers_ministry = $this->workers_ministry_model->find('workers_id='.$id);
-		if(is_array($workers_ministry)){
+		if(is_array($workers_ministry) && ($workers_family)){
 			$worker = array_merge($worker, $workers_ministry);			
 		}
-
-        $data['worker'] = $this->worker_model->find("id=$id");
+		$worker['id']=$id;
+        $data['worker'] = $worker;
 
         $data['content'] = $this->load->view('admin/workers/view', $data, true);
         $this->render('admin', $data);

@@ -145,7 +145,8 @@
 						<div class="row">
 							<div class="col-md-8">
 								<strong>Children:</strong>
-								<?php 
+								<br />
+								<?php 									
 									echo !empty($worker['children'])? nl2br($worker['children']) : '';
 								?>
 							</div>
