@@ -352,7 +352,17 @@ class Workers extends MY_Controller
 
         //load models here
         $this->load->model('worker_model');
+		$this->load->model('workers_family_model');
+        $this->load->model('workers_ministry_model');
 
+        $workers_family = $this->workers_family_model->find('workers_id='. $id);
+        if(is_array($workers_family)){
+			$worker = array_merge($worker, $workers_family);
+		}
+		$workers_ministry = $this->workers_ministry_model->find('workers_id='.$id);
+		if(is_array($workers_ministry)){
+			$worker = array_merge($worker, $workers_ministry);			
+		}
 
         $data['worker'] = $this->worker_model->find("id=$id");
 
