@@ -168,10 +168,13 @@
 								<strong>Tel/Cellphone:</strong> <?=!empty($worker['notify_phone']) ? $worker['notify_phone'] : ''; ?>
 							</div>
 						</div>
+						<div class="row">								
+							<div class="col-md-5">
+								<h3>MINISTRY EXPERIENCE</h3>
+							</div>
+						</div>
 						<div class="row">
-							<h4>MINISTRY EXPERIENCE</h4>
-						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-8">
 								<label>Rank</label>
 							</div>
 							<div class="col-md-2">
@@ -182,8 +185,8 @@
 							</div>						
 						</div>
 						<div class="row">
-							<div class="col-md-3">
-								<strong>Ministry Assistant (Volunteer Worker)</strong>
+							<div class="col-md-8">
+								<strong>Ministry Assistant</strong> (Volunteer Worker)
 							</div>
 							<div class="col-md-2">
 								<?=!empty($worker['volunteer_from'])? $worker['volunteer_from'] : ''?>
@@ -193,8 +196,8 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
-								Pastor / Deaconness (Probationary)
+							<div class="col-md-8">
+								<strong>Pastor / Deaconness</strong> (Probationary)
 							</div>
 							<div class="col-md-2">
 								<?=!empty($worker['probationary_from'])? $worker['probationary_from'] : ''?>
@@ -204,8 +207,8 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
-								Ordained Pastor / Ordained Deaconess (Ordained)
+							<div class="col-md-8">
+								<strong>Ordained Pastor / Ordained Deaconess</strong> (Ordained)
 							</div>
 							<div class="col-md-2">
 								<?=!empty($worker['ordained_from'])? $worker['ordained_from'] : ''?>
@@ -213,7 +216,6 @@
 							<div class="col-md-2">
 								<?=!empty($worker['ordained_to'])? $worker['ordained_to'] : ''?>
 							</div>
-						</div>	
 						</div>
 					</div>
 				</div>
