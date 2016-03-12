@@ -279,7 +279,15 @@
 </div>
 <?php
 	function position($worker){
-		if($worker['ordained_to'] == 'present'){
+		if($worker['ordained_to'] == 'Emeritus' or $worker['ordained_to'] == 'emeritus'){
+			if($worker['gender']=='Male'){
+				return 'Reverend';
+			}else{
+				return 'Deaconess';
+			}	
+			
+		}
+		if($worker['ordained_to'] == 'present' or $worker['ordained_to'] == 'Present'){
 			if($worker['gender']=='Male'){
 				return 'Reverend';
 			}else{
@@ -287,7 +295,7 @@
 			}			
 		}
 		
-		if($worker['probationary_to'] == 'present'){
+		if($worker['probationary_to'] == 'present' or $worker['probationary_to'] == 'Present'){
 			if($worker['gender']=='Male'){
 				return 'Pastor';
 			}else{
@@ -295,7 +303,7 @@
 			}			
 		}
 		
-		if($worker['volunteer_to'] == 'present'){
+		if($worker['volunteer_to'] == 'present' or $worker['volunteer_to'] == 'Present'){
 				return 'Missionary Assistant';
 		}
 		return '';
