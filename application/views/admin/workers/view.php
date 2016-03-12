@@ -33,6 +33,57 @@
 					<div class="col-md-8">
 						<div class="row">
 							<div class="col-md-5">
+								<h3>ID Information</h3>									
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>ID No.:</strong> <?php echo 199200000 + $worker['id']?>
+							</div>													
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4">
+								<strong>Lastname:</strong> <?=!empty($worker['lastname'])? $worker['lastname'] : '' ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>Firstname:</strong> <?=!empty($worker['firstname'])? $worker['firstname'] : '' ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>Middlename:</strong> <?=!empty($worker['middlename'])? $worker['middlename'] : '' ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>Position:</strong> <?php echo position($worker); ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<strong>SSS No.:</strong> <?=!empty($worker['sss']) ? $worker['sss'] : ''?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Person to notify in case of emergency:</strong> <?=!empty($worker['notify_person'])? $worker['notify_person'] : ''; ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<strong>Address:</strong> &nbsp; <?=!empty($worker['notify_address']) ? $worker['notify_address'] : ''; ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<strong>Contact Number:</strong> <?=!empty($worker['notify_phone']) ? $worker['notify_phone'] : ''; ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
 								<h3>PERSONAL BACKGROUND</h3>
 							</div>
 						</div>
@@ -80,8 +131,8 @@
 							<div class="col-md-4">
 								<strong>Telephone No.:</strong> <?=!empty($worker['phone']) ? $worker['phone'] : ''?>
 							</div>
-							<div class="col-md-3">
-								<strong>Cellhone No.:</strong> <?=!empty($worker['cell_phone']) ? $worker['cell_phone'] : ''?>
+							<div class="col-md-4">
+								<strong>Cellphone No.:</strong> <?=!empty($worker['cell_phone']) ? $worker['cell_phone'] : ''?>
 							</div>
 						</div>
 						<div class="row">
@@ -105,6 +156,8 @@
 								<strong>Permanent Address:</strong> <?=!empty($worker['permanent_address']) ? $worker['permanent_address'] : ''?>
 							</div>						
 						</div>
+						
+						
 						<div class="row">
 							<div class="col-md-5">
 								<h3>FAMILY INFORMATION</h3>
@@ -198,7 +251,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-8">
-								<strong>Pastor / Deaconness</strong> (Probationary)
+								<strong>Pastor / Deaconess</strong> (Probationary)
 							</div>
 							<div class="col-md-2">
 								<?=!empty($worker['probationary_from'])? $worker['probationary_from'] : ''?>
@@ -224,3 +277,29 @@
 		</div>
 	</div>
 </div>
+<?php
+	function position($worker){
+		if($worker['ordained_to'] == 'present'){
+			if($worker['gender']=='Male'){
+				return 'Reverend';
+			}else{
+				return 'Deaconess';
+			}			
+		}
+		
+		if($worker['probationary_to'] == 'present'){
+			if($worker['gender']=='Male'){
+				return 'Pastor';
+			}else{
+				return 'Deaconess';
+			}			
+		}
+		
+		if($worker['volunteer_to'] == 'present'){
+				return 'Missionary Assistant';
+		}
+		return '';
+	}
+
+
+?>
