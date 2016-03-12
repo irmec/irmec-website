@@ -284,7 +284,7 @@
 </div>
 <?php
 	function position($worker){
-		if(!empty($worker['ordained_to'])){
+		if(!empty($worker['ordained_to']) or !empty($worker['probationary_to']) or !empty($worker['volunteer_to']) ){
 			if($worker['ordained_to'] == 'Emeritus' or $worker['ordained_to'] == 'emeritus'){
 				if($worker['gender']=='Male'){
 					return 'Reverend';
