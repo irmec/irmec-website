@@ -68,6 +68,11 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-md-4">
+								<strong>PhilHealth No.:</strong> <?=!empty($worker['philhealth']) ? $worker['philhealth'] : ''?>
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-md-8">
 								<strong>Person to notify in case of emergency:</strong> <?=!empty($worker['notify_person'])? $worker['notify_person'] : ''; ?>
 							</div>
@@ -279,32 +284,34 @@
 </div>
 <?php
 	function position($worker){
-		if($worker['ordained_to'] == 'Emeritus' or $worker['ordained_to'] == 'emeritus'){
-			if($worker['gender']=='Male'){
-				return 'Reverend';
-			}else{
-				return 'Deaconess';
-			}	
+		if(!empty($worker['ordained_to']){
+			if($worker['ordained_to'] == 'Emeritus' or $worker['ordained_to'] == 'emeritus'){
+				if($worker['gender']=='Male'){
+					return 'Reverend';
+				}else{
+					return 'Deaconess';
+				}	
+				
+			}
+			if($worker['ordained_to'] == 'present' or $worker['ordained_to'] == 'Present'){
+				if($worker['gender']=='Male'){
+					return 'Reverend';
+				}else{
+					return 'Deaconess';
+				}			
+			}
 			
-		}
-		if($worker['ordained_to'] == 'present' or $worker['ordained_to'] == 'Present'){
-			if($worker['gender']=='Male'){
-				return 'Reverend';
-			}else{
-				return 'Deaconess';
-			}			
-		}
-		
-		if($worker['probationary_to'] == 'present' or $worker['probationary_to'] == 'Present'){
-			if($worker['gender']=='Male'){
-				return 'Pastor';
-			}else{
-				return 'Deaconess';
-			}			
-		}
-		
-		if($worker['volunteer_to'] == 'present' or $worker['volunteer_to'] == 'Present'){
-				return 'Missionary Assistant';
+			if($worker['probationary_to'] == 'present' or $worker['probationary_to'] == 'Present'){
+				if($worker['gender']=='Male'){
+					return 'Pastor';
+				}else{
+					return 'Deaconess';
+				}			
+			}
+			
+			if($worker['volunteer_to'] == 'present' or $worker['volunteer_to'] == 'Present'){
+					return 'Missionary Assistant';
+			}
 		}
 		return '';
 	}
