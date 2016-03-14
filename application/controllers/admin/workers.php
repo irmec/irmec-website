@@ -388,7 +388,7 @@ class Workers extends MY_Controller
 	
 	public function send_sms($id = null)
 	{
-		if(empty($id){
+		if(empty($id)){
 			echo 'false';
 			exit();
 			
