@@ -72,11 +72,19 @@
 
         <!-- FOOTER -->
     <br />
-    
-    <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2015 IRM Evangelical Church. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
+    <div class="copyright_info">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-6">
+				<b><p>&copy; Copyright 2016 | <a href="http://irmec.org/" target="_blank">IRM Evangelical Church</a></p></b>
+			</div>
+			<div class="col-md-6">
+			
+			</div>
+		  </div>
+		</div>
+	</div> 
+
 
 
         <!-- Bootstrap core JavaScript

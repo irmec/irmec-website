@@ -310,7 +310,7 @@
 			}
 			
 			if($worker['volunteer_to'] == 'present' or $worker['volunteer_to'] == 'Present'){
-					return 'Missionary Assistant';
+					return 'Ministry Assistant';
 			}
 		}
 		return '';

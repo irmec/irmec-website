@@ -385,4 +385,30 @@ class Workers extends MY_Controller
 		echo $generatorPNG->getBarcode($barcode, $generatorPNG::TYPE_CODE_128);
 		
 	}
+	
+	public function send_sms($id = null)
+	{
+		if(empty($id){
+			echo 'false';
+			exit();
+			
+		}
+		
+		$nexmo = array(
+			'api_key'=>'04f45f74',
+			'api_secret'=> '406bccd58248af2e'
+		);
+		
+		
+		$this->load->model('worker_model');
+		$worker = $this->worker_model->find("id=$id");
+		$to = $worker['cell_phone'];
+		$worker['firstname'] = 'Kumander';
+		$message = $worker['firstname'].", pls send your sss number for ID purposes - IRMEC ";
+		$response = file_get_contents('https://rest.nexmo.com/sms/json?api_key=' . $nexmo['api_key'] . '&api_secret=' . $nexmo['api_secret'] . '&from=IRMEC&to=' . $to . '&text=' . urlencode($message));
+		echo $response;
+		
+	}
+	
+
 }
