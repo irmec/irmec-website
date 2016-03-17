@@ -18,16 +18,19 @@ class Cron extends CI_Controller{
 		parse_str( $_SERVER['QUERY_STRING'], $_REQUEST );
 		$day = date('j');
 		$month = date('n');
-		 $page_id = FB_PAGE_ID;
-		$sql = "select 
+		$page_id = FB_PAGE_ID;
+		
+		$sql = "SELECT
 				case when gender = 'Male' then 'Ptr.' ELSE 'Deac.' end as pre,
 				firstname, 
 				case when nickname != '' then nickname ELSE firstname end as nick,
 				lastname, dob
-				from workers where MONTH(dob) = $month  order by lastname, firstname";
+				FROM workers WHERE MONTH(dob) = $month  AND DAY(dob) = $day ORDER BY lastname, firstname";
 		
 		$result = $this->db->query($sql)->result_array();
-		
+		if(count($result) == 0){
+			exit();			
+		}
 		$fb_app_id = $this->config->item('fb_app_id');
 		$fb_app_secret = $this->config->item('fb_app_secret');
 	    
@@ -49,6 +52,7 @@ class Cron extends CI_Controller{
 		);
 		$post_id = $facebook->api("/$page_id/feed","post",$args);
         exit();
+        /*
         if ($user)
         {
             try
@@ -94,7 +98,7 @@ class Cron extends CI_Controller{
             redirect($loginUrl);
         }
         // ... rest of your code
-		
+		*/
 		
 	}
 	
