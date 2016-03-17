@@ -103,7 +103,7 @@ class Announcements extends MY_Controller
 
     }
     
-    /** Edit Church **/
+
     
     public function edit($id=null)
     {
@@ -197,7 +197,7 @@ class Announcements extends MY_Controller
 
 
         $page_id = FB_PAGE_ID;
-        $message = "Message post test, integration website->facebook->twitter";
+        $message = 'Happy Birthday to Deac. Riza Mae "Sarah" Lita 1991-03-13 from your IRMEC Family -- FB app test';
 
 
         // Create our Application instance (replace this with your appId and secret).
