@@ -4,8 +4,8 @@ if(empty($fbmeta_data)):?>
 <meta property="og:title" content="IRM Evangelical Church"/>
 <meta property="og:site_name" content="IRM Evangelical Church"/>
 <meta property="og:description" content="We envision that our corporate effort shall contribute to the fulfilment of the mission of Jesus Christ towards the transformation and redemption of nations."/>
-<meta property="og:image" content="http://www.irmevangelicalchurch.org/images/slider2.jpg"/>
-<meta property="og:url" content="http://www.irmevangelicalchurch.org"/>
+<meta property="og:image" content="http://irmec.org/images/slider2.jpg"/>
+<meta property="og:url" content="http://irmec.org"/>
 
 <?php else: ?>
 
@@ -15,7 +15,7 @@ if(empty($fbmeta_data)):?>
 <?php if(!empty($fbmeta_data['image'])):?>
 <meta property="og:image" content="<?=$fbmeta_data['image']?>"/>
 <?php else: ?>
-<meta property="og:image" content="http://www.irmevangelicalchurch.org/images/pdf_download.png"/>
+<meta property="og:image" content="http://irmec.org/images/pdf_download.png"/>
 
 <?php endif; ?>
 <meta property="og:url" content="<?=$fbmeta_data['url']?>"/>
