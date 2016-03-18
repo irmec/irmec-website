@@ -425,8 +425,8 @@ class Workers extends MY_Controller
 		if(!empty($workers)){
 			foreach($workers as $worker){
 				echo $worker['cell_phone'].';';
-				exit();
 			}
+			exit();
 		}
 		
 		echo 'false';
