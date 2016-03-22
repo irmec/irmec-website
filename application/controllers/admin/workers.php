@@ -463,13 +463,13 @@ class Workers extends MY_Controller
 	public function xhr_sms_all(){
 		$sql = "select cell_phone
 			from workers
-			where cell_phone !='' and cell_phone != '+85262732172'";
+			where cell_phone !='' and cell_phone != '+85262732172' and cell_phone !='+85517775815' and cell_phone !='0918662063'";
 			
 		$workers = $this->db->query($sql)->result_array();
 	
 		if(!empty($workers)){
 			foreach($workers as $worker){
-				echo $worker['cell_phone'].';';
+				echo trim($worker['cell_phone']).';';
 			}
 			exit();
 		}
