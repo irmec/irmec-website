@@ -34,7 +34,15 @@
         <div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="<?=site_url()?>admin/churches">Churches</a></li>
-				<li><a href="<?=site_url()?>admin/workers">Workers</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workers&nbsp;<span class="caret"></span></a>
+					 <ul class="dropdown-menu">
+						<li><a href="<?=site_url()?>admin/workers">Manage Workers</a></li>
+						<li><a href="<?=site_url()?>admin/workers/masterlist">Masterlist</a></li>
+					</ul>
+				
+				</li>
+				
+				
 				<li><a href="<?=site_url()?>admin/downloads">Downloads</a></li>
 			</ul>  
           <ul class="nav navbar-nav navbar-right">
@@ -42,8 +50,8 @@
             <li><a href="<?=site_url()?>admin/messages">Messages</a></li>             
             <li><a href="<?php echo base_url()?>logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a> </li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+          <form class="navbar-form navbar-right" method="GET" action="/admin/workers">
+            <input type="text"  name="keyword" class="form-control" placeholder="Search...">
           </form>
         </div>
       </div>
@@ -64,7 +72,7 @@
     <!-- JavaScript -->
     <script src="<?=base_url()?>javascript/jquery-1.7.1.min.js"></script>
     <script src="<?=base_url()?>css/bootstrap/js/bootstrap.js"></script>
-    <script src="<?=base_url()?>css/bootstrap/js/bootstrap.js"></script>
+    
 
     <!-- Custom JavaScript for the Menu Toggle -->
     <script>
