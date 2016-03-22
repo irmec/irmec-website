@@ -386,6 +386,33 @@ class Workers extends MY_Controller
 		
 	}
 	
+	public function masterlist(){
+		$sql = "SELECT lastname, firstname, middlename, gender, volunteer_to, probationary_to, ordained_to
+			from workers w left join workers_ministries wm on w.id=wm.workers_id	
+			where probationary_to='Present' or ordained_to='Present'
+			order by lastname, firstname, middlename";
+			
+		
+		$data['workers'] = $this->db->query($sql)->result_array();
+		$data['content'] = $this->load->view('admin/workers/masterlist', $data, true);
+		$this->render('admin', $data);
+		
+		
+	}
+	
+	public function contacts(){
+		$sql = "SELECT lastname, firstname, middlename, cell_phone
+			from workers 
+			order by lastname, firstname, middlename";
+			
+		
+		$data['workers'] = $this->db->query($sql)->result_array();
+		$data['content'] = $this->load->view('admin/workers/contacts', $data, true);
+		$this->render('admin', $data);
+		
+		
+	}
+	
 	public function xhr_send_sms()
 	{
 		

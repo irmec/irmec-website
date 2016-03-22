@@ -102,4 +102,52 @@ class Cron extends CI_Controller{
 		
 	}
 	
+	public function check_cellphone(){
+		$sql = "select cell_phone
+			from workers
+			where cell_phone !='' and cell_phone != '+85262732172'";
+			
+		$workers = $this->db->query($sql)->result_array();
+	
+		if(!empty($workers)){
+			foreach($workers as $worker){
+				if(strlen(trim($worker['cell_phone'])) < 11){
+					echo $worker['cell_phone'];										
+					echo PHP_EOL;
+				}
+				
+				if(strlen(trim($worker['cell_phone'])) > 11){
+					echo $worker['cell_phone'];										
+					echo PHP_EOL;
+				}
+			}
+			exit();
+		}
+		
+		echo 'false';		
+		
+	}
+	
+	public function no_cellphone(){
+		$sql = "select 
+			case when gender = 'Male' then 'Ptr.' ELSE 'Deac.' end as pre,
+			lastname, firstname, cell_phone
+			from workers
+			where cell_phone =''";
+		
+		$workers = $this->db->query($sql)->result_array();
+		
+		if(!empty($workers)){
+			foreach($workers as $worker){
+				
+					echo $worker['pre'].' '. $worker['lastname'].', '.$worker['firstname'];										
+					echo PHP_EOL;
+				
+			}
+			exit();
+		}
+		
+		echo 'false';
+	}
+	
 }
