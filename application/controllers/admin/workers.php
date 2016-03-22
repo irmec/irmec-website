@@ -445,7 +445,7 @@ class Workers extends MY_Controller
 			where sss = '' and cell_phone !='' and cell_phone !='09085279200' and cell_phone !='09099334924'
 			and cell_phone != '09995847618' and cell_phone != '09061233685' and cell_phone != '09102723810' and cell_phone != '09058415419'
 			and cell_phone != '0998896211' and cell_phone != '09482633543' and cell_phone != '09287187104' and cell_phone != '09238632353'
-			and cell_phone != '09771730247' and cell_phone != '09079332965' and cell_phone != '+85262732172'";
+			and cell_phone != '09771730247' and cell_phone != '09079332965' and cell_phone != '+85262732172' and cell_phone !='+85517775815'";
 			
 		$workers = $this->db->query($sql)->result_array();
 	
