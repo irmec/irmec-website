@@ -24,7 +24,7 @@ class Workers extends MY_Controller
 	
 	public function masterlist()
 	{
-		$sql = "SELECT lastname, nickname, middlename, gender, 
+		$sql = "SELECT w.id, lastname, nickname, middlename, gender, 
 				case when volunteer_to = 'present' then 'Ministry Assistant' 	
 					when probationary_to ='present' and gender ='Male' then 'Pastor' 
 					when probationary_to ='present' and gender ='Female' then 'Deaconess'

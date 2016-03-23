@@ -4,6 +4,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>ID No.</th>
 					<th>Lastname</th>
 					<th>Firstname</th>
 					<th>MI</th>
@@ -22,6 +23,9 @@
 				<?php foreach($workers as $worker):
 				?>
 					<tr>
+						<td>
+							<?=199200000 + $worker['id']?>
+						</td>
 						<td>
 							<?=$worker['lastname']?>
 						</td>
