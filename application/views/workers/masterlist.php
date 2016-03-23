@@ -8,7 +8,7 @@
 					<th>Firstname</th>
 					<th>MI</th>
 					<th>Gender</th>
-					<th class="text-center">Designation</th>
+					<th >Designation</th>
 					<th class="text-center">SSS</th>
 					<th class="text-center">PhilHealth</th>
 					<th class="text-center">Cellphone</th>
@@ -34,7 +34,7 @@
 						<td class="text-center"><?=$worker['gender']?>
 							
 						</td>
-						<td class="text-center"><?=$worker['designation']?>
+						<td><?=$worker['designation']?>
 						</td>
 						<td class="text-center"><?=$worker['sss']?>
 						</td>
