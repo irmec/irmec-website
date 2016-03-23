@@ -40,7 +40,13 @@ class Workers extends MY_Controller
 			from workers w join workers_ministries wm on w.id=wm.workers_id	 join workers_families wf on w.id=wf.workers_id
 			where probationary_to='present' or ordained_to='present' or volunteer_to = 'present' or ordained_to='emeritus'
 			order by lastname, firstname, middlename";
-		
+		$this->set_fbmeta(array(
+			'title'=>'IRMEC Workers Masterlist',
+			'description'=>'The workers masterlist with status of data',
+			'image'=>site_url().'images/masterlist.png',
+			'url'=>site_url('workers/masterlist')
+			
+		));
 		$data['workers'] = $this->db->query($sql)->result_array();
 		$data['content'] = $this->load->view('workers/masterlist', $data, true);
 		$this->render('landing', $data);

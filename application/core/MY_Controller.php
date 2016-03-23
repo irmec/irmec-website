@@ -81,7 +81,7 @@ class MY_Controller extends CI_Controller{
     #this will not do anything without a meta
     public function set_fbmeta($meta=null){
         if(!empty($meta)){
-            $this->fbmeta = $meta;
+            $this->fbmeta_data = $meta;
         }
     }
 
