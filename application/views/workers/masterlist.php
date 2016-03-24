@@ -58,7 +58,9 @@
 			</tbody>
 		
 		</table>
-		
+		<pre>
+			Note: These are partial list.
+		</pre>
 		
 		
 	</div>

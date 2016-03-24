@@ -51,55 +51,43 @@ class Cron extends CI_Controller{
 			'message'       => $message
 		);
 		$post_id = $facebook->api("/$page_id/feed","post",$args);
-        exit();
-        /*
-        if ($user)
-        {
-            try
-            {
-                $page_info = $facebook->api("/$page_id?fields=access_token");
-                if( !empty($page_info['access_token']) )
-                {
-                    print_r($page_info['access_token']);
-                    
-                    $args = array(
-                                'access_token'  => $page_info['access_token'],
-                                'message'       => $message
-                            );
-                    $post_id = $facebook->api("/$page_id/feed","post",$args);
-                }
-                else
-                {
-                    $permissions = $facebook->api("/me/permissions");
-                    if( !array_key_exists('publish_stream', $permissions['data'][0]) ||
-                            !array_key_exists('manage_pages', $permissions['data'][0]))
-                    {
-                        // We don't have one of the permissions
-                        // Alert the admin or ask for the permission!
-                        header( "Location: " . $facebook->getLoginUrl(array("scope" => "publish_stream, manage_pages")) );
-                    }
-                }
-            }
-            catch (FacebookApiException $e)
-            {
-                error_log($e);
-                $user = null;
-            }
-        }
-          // Login or logout url will be needed depending on current user state.
-        if ($user)
-        {
-            $logoutUrl = $facebook->getLogoutUrl();
-        }
-        else
-        {
-            $statusUrl = $facebook->getLoginStatusUrl();
-            $loginUrl = $facebook->getLoginUrl();
-            redirect($loginUrl);
-        }
-        // ... rest of your code
-		*/
+        exit();    
 		
+	}
+	
+	public function votd(){
+		//get the verse
+		$version_id = 9;
+		$votd_url = "http://www.biblegateway.com/usage/votd/rss/votd.rdf?$version_id";
+		
+		$xml_str = file_get_contents($votd_url);
+		
+		if($xml_str){
+			$xml_obj = simplexml_load_string($xml_str);
+		
+			$facebook = new Facebook(array(
+                                     'appId'  => FB_APP_ID,
+                                     'secret' => FB_APP_SECRET
+                        ));
+				
+			$access_token = $this->config->item('fb_access_token');		
+			
+			$content = (string)$xml_obj->channel->item->children("content", true)->encoded;
+			//process verse
+			//strip
+			$process_v = explode("<br/>", $content);
+			$title = $xml_obj->channel->item->title;
+			$verse = html_entity_decode(trim($process_v[0]));
+			$message="$title (KJV) \n\r\n\r"
+				."$verse";
+				
+			$args = array(
+				'access_token'  => $access_token,
+				'message'       => $message
+			);
+			$post_id = $facebook->api("/$page_id/feed","post",$args);
+			exit();    
+		}										
 	}
 	
 	public function check_cellphone(){
