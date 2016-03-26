@@ -26,9 +26,6 @@ class MY_Controller extends CI_Controller{
             'additional_css'=> null,
 		);
 
-
-
-
 		$this->sections = $sections;
 	}
     public function render($template_name, $sections = array(), $return = false) {
@@ -87,7 +84,3 @@ class MY_Controller extends CI_Controller{
 
 
 }
-
-
-
-

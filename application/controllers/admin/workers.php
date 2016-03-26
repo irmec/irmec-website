@@ -37,13 +37,11 @@ class Workers extends MY_Controller
                                lastname like '%{$keyword}%' OR
                                firstname like '%{$keyword}%'
                                ");
-
         }
         else
         {
             $data['workers'] = $this->worker_model->findAll(null,null,"id DESC");
         }
-
 
 
         $data['content'] = $this->load->view('admin/workers/index', $data, true);
@@ -60,8 +58,7 @@ class Workers extends MY_Controller
         $this->load->model('worker_model');
         $this->load->model('workers_family_model');
         $this->load->model('workers_ministry_model');
-        
-         
+                 
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
         $this->form_validation->set_rules('firstname', 'First Name', 'required');
         $this->form_validation->set_rules('middlename', 'Middle Name', 'required');
@@ -387,12 +384,24 @@ class Workers extends MY_Controller
 	}
 	
 	public function masterlist(){
-		$sql = "SELECT lastname, firstname, middlename, gender, volunteer_to, probationary_to, ordained_to
-			from workers w left join workers_ministries wm on w.id=wm.workers_id	
-			where probationary_to='Present' or ordained_to='Present'
+		$sql = "SELECT w.id, lastname, firstname, nickname, middlename, gender, 
+				case when volunteer_to = 'present' then 'Ministry Assistant' 	
+					when probationary_to ='present' and gender ='Male' then 'Pastor' 
+					when probationary_to ='present' and gender ='Female' then 'Deaconess'
+					when ordained_to='present' and gender ='Male' then 'Ordained Pastor'
+					when ordained_to='present' and gender ='Female' then 'Ordained Deaconess'
+					when ordained_to='Emeritus' then 'Emeritus'
+				end as designation,
+				sss,
+				philhealth,
+				cell_phone,
+				case when notify_person='' then '' else 'with data' end as contact_person,
+				case when notify_phone ='' then '' else 'with data' end as contact_phone,
+				processed
+			from workers w join workers_ministries wm on w.id=wm.workers_id	 join workers_families wf on w.id=wf.workers_id
+			where probationary_to='present' or ordained_to='present' or volunteer_to = 'present' or ordained_to='emeritus'
 			order by lastname, firstname, middlename";
-			
-		
+				
 		$data['workers'] = $this->db->query($sql)->result_array();
 		$data['content'] = $this->load->view('admin/workers/masterlist', $data, true);
 		$this->render('admin', $data);
@@ -413,6 +422,28 @@ class Workers extends MY_Controller
 		
 	}
 	
+	public function xhr_processed_ID()
+	{
+		$workers_id = $this->input->post('id');
+		$processed = $this->input->post('processed');
+		
+		if($processed=='Y'){
+			$id = 1;	
+		}else{
+			$id = 0;
+		}
+		$this->load->model('worker_model');
+		
+		$response = $this->worker_model->save(array('processed'=>$id), $workers_id);
+		
+		if($response){
+			echo 'success';	
+			return;		
+		}
+		echo 'failed';
+		return;
+						
+	}
 	public function xhr_send_sms()
 	{
 		

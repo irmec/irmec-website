@@ -1,31 +1,57 @@
-<?php
-$num_workers = 0;
-$num_probationary_pastors=0;
-$num_ordained_pastors=0;
-$num_probationary_deaconess=0;
-$num_ordained_deaconess =0;
-?>
+<script type="text/javascript">
+	$(function(){
+		
+		$('.processed-id').click(function(){
+			var worker_id = $(this).attr('data-id');
+			var processed = 'N';
+			if($(this).attr('checked')){
+				processed = 'Y';
+			}else{
+				processed = 'N';				
+			}
+			/** post **/
+			$.ajax({
+				url: '/admin/workers/xhr_processed_ID',
+				type: 'POST',
+				data: {id:worker_id, processed:processed},
+				success: function()
+				{
+					console.log('success');
+				}
+			
+			});
+		
+		});
+	});
+
+
+</script>
+
 <div class="row">
 	<div class="col-md-12">
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>ID. No.</th>
 					<th>Lastname</th>
 					<th>Firstname</th>
-					<th>MI</th>
-					<th class="text-center">ORD. PTR.</th>
-					<th class="text-center">PASTOR</th>
-					<th class="text-center">ORD. DEAC.</th>
-					<th class="text-center">DEAC.</th>
-				</tr>
-				
+					<th>Middlename</th>
+					<th>Gender</th>
+					<th>Designation</th>
+					<th>SSS</th>
+					<th>PhilHealth</th>
+					<th>Cellphone</th>
+					<th class="text-center">Contact Person</th>
+					<th class="text-center">Contact Person's Phone</th>
+					<th class="text-center">ID Processed</th>
+				</tr>				
 			</thead>
-			
 			<tbody>
-				<?php foreach($workers as $worker):
-					$num_workers++;
-				?>
+				<?php foreach($workers as $worker):?>
 					<tr>
+						<td>
+							<a href="<?php echo base_url().'admin/workers/edit/'.$worker['id']?>"><?=199200000 + $worker['id']?></a>
+						</td>
 						<td>
 							<?=$worker['lastname']?>
 						</td>
@@ -33,64 +59,28 @@ $num_ordained_deaconess =0;
 							<?=$worker['firstname']?>						
 						</td>
 						<td>
-							<?=substr($worker['middlename'],0,1)?>
+							<?=$worker['middlename']?>
 						</td>
-						<td class="text-center"><?php if(trim(strtolower($worker['ordained_to'])) == 'present' && trim(strtolower($worker['gender'])) == 'male' ):
-							$num_ordained_pastors++;
-							?>
-								Yes
-							<?php endif;?>
+						<td class="text-center"><?=$worker['gender']?>
+							
 						</td>
-						<td class="text-center"><?php if(trim(strtolower($worker['probationary_to'])) == 'present' && trim(strtolower($worker['gender'])) == 'male' ):
-							$num_probationary_pastors++;
-							?>
-								Yes
-							<?php endif;?>
+						<td><?=$worker['designation']?>
 						</td>
-						<td class="text-center"><?php if(trim(strtolower($worker['ordained_to'])) == 'present' && trim(strtolower($worker['gender'])) == 'female' ):
-							$num_ordained_deaconess++;
-							?>
-								Yes
-							<?php endif;?>
+						
+						<td><?=$worker['sss']?>
 						</td>
-						<td class="text-center"><?php if(trim(strtolower($worker['probationary_to'])) == 'present' && trim(strtolower($worker['gender'])) == 'female' ):
-							$num_probationary_deaconess++;
-							?>
-								Yes
-							<?php endif;?>
+						<td><?=$worker['philhealth']?>
 						</td>
+						<td><?=$worker['cell_phone']?>
+						</td>
+						<td class="text-center"><?=$worker['contact_person']?>
+						</td>
+						<td class="text-center"><?=$worker['contact_phone']?>						
+						</td>
+						<td class="text-center"><input type="checkbox" class="processed-id" value="1" data-id ="<?=$worker['id']?>" <?php if($worker['processed']) echo 'checked="checked"';?>/></td>
 					</tr>
-				
-				
 				<?php endforeach;?>
-
-			</tbody>
-		
-		</table>
-		<br />
-		<br />
-		<div class="row">
-			<div class="col-md-4">
-				<table class="table">
-					<tr>
-						<td>Number of Probationary Pastors: </td><td class="text-right"><?=$num_probationary_pastors?></td>
-					</tr>
-					<tr>
-						<td>Number of Ordained Pastors: </td><td class="text-right"><?=$num_ordained_pastors?></td>
-					</tr>
-					<tr>
-						<td>Number of Probationary Deaconess:</td><td class="text-right"><?=$num_probationary_deaconess?></td>
-					</tr>
-					<tr>
-						<td>Number of Ordained Deaconess :</td><td class="text-right"><?=$num_ordained_deaconess?></td>
-					</tr>
-					<tr>
-						<td>Total Number of Workers: </td><td class="text-right"><?=$num_workers?></td>
-					</tr>					
-				</table>
-			</div>
-		</div>
-		
+			</tbody>		
+		</table>		
 	</div>
-
 </div>

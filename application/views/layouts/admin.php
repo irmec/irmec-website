@@ -15,7 +15,11 @@
     <!-- Add custom CSS here -->
     <link href="<?=base_url()?>css/dashboard.css" rel="stylesheet">
      <!-- GOOGLE FONT -->
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+	
+	 <!-- JavaScript -->
+    <script src="<?=base_url()?>javascript/jquery-1.7.1.min.js"></script>
+    <script src="<?=base_url()?>css/bootstrap/js/bootstrap.js"></script>
 
 </head>
 
@@ -69,9 +73,7 @@
 
 
 
-    <!-- JavaScript -->
-    <script src="<?=base_url()?>javascript/jquery-1.7.1.min.js"></script>
-    <script src="<?=base_url()?>css/bootstrap/js/bootstrap.js"></script>
+   
     
 
     <!-- Custom JavaScript for the Menu Toggle -->
