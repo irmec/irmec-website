@@ -15,6 +15,7 @@
 					<th class="text-center">Cellphone</th>
 					<th class="text-center">Contact Person</th>
 					<th class="text-center">Contact Person's Phone</th>
+					<th clsss="text-center">ID Processed</th>
 				</tr>
 				
 			</thead>
@@ -49,6 +50,9 @@
 						<td class="text-center"><?=$worker['contact_person']?>						
 						</td>
 						<td class="text-center"><?=$worker['contact_phone']?>						
+						</td>
+						<td class="text-center">
+							<?=$worker['processed'] ? 'Yes' : 'No'?>
 						</td>
 					</tr>
 				

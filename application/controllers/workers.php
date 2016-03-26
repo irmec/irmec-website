@@ -36,7 +36,8 @@ class Workers extends MY_Controller
 				case when philhealth='' then '' else 'with data' end as phil_health,
 				case when cell_phone ='' then '' else 'with data' end as cellphone,
 				case when notify_person='' then '' else 'with data' end as contact_person,
-				case when notify_phone ='' then '' else 'with data' end as contact_phone
+				case when notify_phone ='' then '' else 'with data' end as contact_phone,
+				processed
 			from workers w join workers_ministries wm on w.id=wm.workers_id	 join workers_families wf on w.id=wf.workers_id
 			where probationary_to='present' or ordained_to='present' or volunteer_to = 'present' or ordained_to='emeritus'
 			order by lastname, firstname, middlename";
