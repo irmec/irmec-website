@@ -52,7 +52,7 @@
 						<td class="text-center"><?=$worker['contact_phone']?>						
 						</td>
 						<td class="text-center">
-							<?=$worker['processed'] ? 'Yes' : 'No'?>
+							<?=$worker['processed'] ? 'Yes' : ''?>
 						</td>
 					</tr>
 				
