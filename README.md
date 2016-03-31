@@ -20,7 +20,7 @@ Donations will be used to pay hosting and other costs. If anything is left over 
 
 We accept donations mediated by the following services, 
 
-Paypal - [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5TUCYMWU32NDG)
+Paypal - [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E2TYV3SSJW35U)
 
 Bitcoin - 33K11jzYseKXeVa7LgqFG4av7jqBYTpafb
 
