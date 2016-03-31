@@ -14,6 +14,17 @@ The API, the proposed mobile code are seperated from this repository.
 
 If it is a simple/trivial/non-controversial change, then one of the IRM Evangelical Church development team members simply pulls it.
 
+# Donations
+
+Donations will be used to pay hosting and other costs. If anything is left over at the end of the year the amount is donated to IRMEC Mission Team.
+
+We accept donations mediated by the following services, 
+
+Paypal - [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5TUCYMWU32NDG)
+
+Bitcoin - 33K11jzYseKXeVa7LgqFG4av7jqBYTpafb
+
+
 # Installation
 
 Please read on how to install on your local dev machine see [INSTALLATION.md](INSTALLATION.md)
